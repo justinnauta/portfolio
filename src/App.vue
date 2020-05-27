@@ -5,16 +5,15 @@
 </template>
 
 <script>
-import HeroHeader from './components/HeroHeader.vue'
+import HeroHeader from "./components/HeroHeader.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     HeroHeader
   }
-}
+};
 </script>
 
 <style>
-
 </style>
