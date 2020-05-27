@@ -1,2 +1,4 @@
-# portfolio
-My web portfolio
+# Portfolio
+Justin Nauta's Web Portfolio
+---
+Currently being developed
