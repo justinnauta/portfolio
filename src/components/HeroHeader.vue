@@ -2,10 +2,6 @@
   <!-- Page header ("First page") -->
   <div id="heroHeader">
     <section class="hero is-fullheight is-light">
-      <!-- Mobile navbar -->
-      <div class="hero-head">
-        <MainNav class="is-hidden-desktop"></MainNav>
-      </div>
       <!-- Content -->
       <div class="hero-body">
         <div class="container">
@@ -13,7 +9,7 @@
           <div class="columns is-vcentered">
             <!-- First Column -->
             <div class="column">
-              <div class="content is-medium has-text-dark">
+              <div class="content is-medium has-text-dark has-text-centered-mobile">
                 <h1 class="title is-1 has-text-dark">Hi, I'm Justin.</h1>
                 <p>This will be a very quick summary of the content on the "About" page, or something similar.</p>
                 <div class="has-text-centered">
@@ -23,7 +19,7 @@
             </div>
             <!-- Second Column -->
             <div class="column">
-              <h3 class="title is-3 has-text-dark">Featured Projects</h3>
+              <h3 class="title is-3 has-text-dark has-text-centered-mobile">Featured Projects</h3>
               <!-- Projects Columns -->
               <div class="columns">
                 <div class="column">
@@ -33,20 +29,23 @@
                   <ProjectCard></ProjectCard>
                 </div>
               </div>
-              <div class="has-text-right">
-                <button class="button is-link is-rounded is-medium">
+              <!-- View all button -->
+              <div class="has-text-right has-text-centered-mobile">
+                <button class="button is-link is-rounded is-medium" id="viewAllBtn">
                   View All
-                  <i class="fas fa-chevron-right"></i>
+                  <font-awesome-icon class="faIcon" icon="chevron-right" fixed-width />
                 </button>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <!-- Desktop navbar -->
+      <!-- Navbar -->
       <div class="hero-foot">
-        <MainNav class="is-hidden-touch"></MainNav>
+        <MainNav />
       </div>
+      <!-- Triangle for slanted design -->
+      <DesignTriangle />
     </section>
   </div>
 </template>
@@ -54,15 +53,33 @@
 <script>
 import MainNav from "./MainNav.vue";
 import ProjectCard from "./ProjectCard.vue";
+import DesignTriangle from "./DesignTriangle.vue";
 
 export default {
   name: "HeroHeader",
   components: {
     MainNav,
-    ProjectCard
+    ProjectCard,
+    DesignTriangle
   }
 };
 </script>
 
-<style>
+<style lang="scss">
+@import "../assets/sass/main.scss";
+
+@include until($tablet) {
+  #heroHeader {
+    margin-top: 30px;
+  }
+}
+
+/* For rotating the arrow on the view all button */
+.faIcon {
+  transition: 0.3s;
+}
+
+#viewAllBtn:hover .faIcon {
+  transform: rotateZ(90deg);
+}
 </style>
