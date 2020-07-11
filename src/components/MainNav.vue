@@ -22,10 +22,10 @@
       <!-- Menu items -->
       <div id="navItems" class="navbar-menu">
         <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-          <a href="#" class="navbar-item is-active" @click="navItemClicked">Home</a>
-          <a href="#" class="navbar-item" @click="navItemClicked">Projects</a>
-          <a href="#" class="navbar-item" @click="navItemClicked">About</a>
-          <a href="#" class="navbar-item" @click="navItemClicked">Contact</a>
+          <a href="#heroHeader" class="navbar-item is-active" @click="navItemClicked">Home</a>
+          <a href="#projectsPage" class="navbar-item" @click="navItemClicked">Projects</a>
+          <a href="#aboutPage" class="navbar-item" @click="navItemClicked">About</a>
+          <a href="#contactPage" class="navbar-item" @click="navItemClicked">Contact</a>
           <a href="#" class="navbar-item" @click="navItemClicked">Resume</a>
         </div>
       </div>

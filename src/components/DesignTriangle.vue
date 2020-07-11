@@ -1,7 +1,10 @@
 <template>
-<!-- Triangle for slanted page design. Can be inverted with class "is-inverted" -->
+<!-- Triangle for slanted page design -->
+<!-- Can be inverted with class "is-inverted" -->
+<!-- Can be light colored with class "fill-light" -->
+<!-- Can be positioned at top with class "is-top" -->
   <div id="designTriangle">
-    <div class="is-fullwidth has-margin-top-minus-50">
+    <div class="is-fullwidth">
       <svg
         class="is-block"
         preserveAspectRatio="none"
@@ -30,7 +33,19 @@ export default {
 }
 
 .is-inverted path {
-  fill: $light !important;
   d: path("M250 0 H0 V50 Z") !important;
+}
+
+.fill-light path {
+  fill: $light !important;
+}
+
+.is-fullwidth {
+  margin-top: -50px;
+}
+
+.is-top .is-fullwidth {
+  margin-top: 0px !important;
+  margin-bottom: -50px;
 }
 </style>

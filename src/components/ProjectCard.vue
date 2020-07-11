@@ -12,7 +12,7 @@
       <div class="card-content has-text-centered has-text-dark">
         <p class="title is-5 has-text-centered has-text-dark">Title of Project</p>
         <p class="is-size-6">A quick, one-liner description of the project.</p>
-        <button class="button is-link is-rounded has-margin-top-20">Learn More</button>
+        <button class="button is-link is-rounded mt-5">Learn More</button>
       </div>
     </div>
   </div>

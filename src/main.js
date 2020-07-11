@@ -4,7 +4,6 @@ import App from './App.vue';
 
 // Bulma
 import './assets/sass/main.scss';
-import 'bulma-spacing';
 
 // Font awesome
 import { library, dom } from '@fortawesome/fontawesome-svg-core';

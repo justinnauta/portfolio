@@ -40,12 +40,12 @@
           </div>
         </div>
       </div>
-      <!-- Navbar -->
+      <!-- Footer -->
       <div class="hero-foot">
         <MainNav />
+        <!-- Triangle for slanted design -->
+        <DesignTriangle />
       </div>
-      <!-- Triangle for slanted design -->
-      <DesignTriangle />
     </section>
   </div>
 </template>
