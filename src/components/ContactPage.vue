@@ -29,8 +29,8 @@
       </div>
       <!-- Footer -->
       <div class="hero-foot">
-        <footer class="footer has-background-dark py-1">
-          <div class="level">
+        <footer class="footer has-background-dark py-1 px-3">
+          <div class="level is-mobile">
             <div class="level-left">
               <div class="level-item">
                 <p>&copy; 2020 Justin Nauta. All Rights Reserved.</p>
@@ -39,20 +39,20 @@
             <!-- Social Links -->
             <div id="contact-socialLinks">
               <div class="level-right">
-                <form action="https://github.com/justinnauta" class="level-item mx-0 mr-5">
-                  <button class="button is-large px-2">
+                <div class="level-item mr-0">
+                  <a href="https://github.com/justinnauta" class="button is-large">
                     <span class="icon is-large">
-                      <i class="fab fa-github fa-lg"></i>
+                      <i class="fab fa-github fa-2x"></i>
                     </span>
-                  </button>
-                </form>
-                <form action="https://www.linkedin.com/in/justinnauta/" class="level-item mx-0">
-                  <button class="button is-large px-2">
+                  </a>
+                </div>
+                <div class="level-item">
+                  <a href="https://www.linkedin.com/in/justinnauta/" class="button is-large">
                     <span class="icon is-large">
-                      <i class="fab fa-linkedin fa-lg"></i>
+                      <i class="fab fa-linkedin fa-2x"></i>
                     </span>
-                  </button>
-                </form>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -76,13 +76,13 @@ export default {
 <style lang="scss">
 @import "../assets/sass/main.scss";
 
-#contact-socialLinks button {
+#contact-socialLinks a {
   border: none;
   background: none;
   color: $light;
 }
 
-#contact-socialLinks button:hover {
+#contact-socialLinks a:hover {
   color: $primary;
 }
 </style>

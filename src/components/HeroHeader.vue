@@ -13,7 +13,7 @@
                 <h1 class="title is-1 has-text-dark">Hi, I'm Justin.</h1>
                 <p>This will be a very quick summary of the content on the "About" page, or something similar.</p>
                 <div class="has-text-centered">
-                  <button class="button is-link is-rounded is-medium">Contact</button>
+                  <a href="#contactPage" class="button is-link is-rounded is-medium">Contact</a>
                 </div>
               </div>
             </div>
@@ -31,10 +31,10 @@
               </div>
               <!-- View all button -->
               <div class="has-text-right has-text-centered-mobile">
-                <button class="button is-link is-rounded is-medium" id="viewAllBtn">
+                <a href="#projectsPage" class="button is-link is-rounded is-medium" id="viewAllBtn">
                   View All
                   <font-awesome-icon class="faIcon" icon="chevron-right" fixed-width />
-                </button>
+                </a>
               </div>
             </div>
           </div>

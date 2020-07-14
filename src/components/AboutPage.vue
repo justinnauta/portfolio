@@ -24,20 +24,16 @@
                 <p class="mb-1">{{ titleTag1 }} &bull; {{ titleTag2 }}</p>
                 <!-- Social Links -->
                 <div id="about-socialLinks">
-                  <form action="https://github.com/justinnauta" class="is-inline">
-                    <button class="button is-medium mr-2">
-                      <span class="icon is-medium">
-                        <i class="fab fa-github fa-2x"></i>
-                      </span>
-                    </button>
-                  </form>
-                  <form action="https://www.linkedin.com/in/justinnauta/" class="is-inline">
-                    <button class="button is-medium">
-                      <span class="icon is-medium">
-                        <i class="fab fa-linkedin fa-2x"></i>
-                      </span>
-                    </button>
-                  </form>
+                  <a href="https://github.com/justinnauta" class="button is-medium">
+                    <span class="icon is-medium">
+                      <i class="fab fa-github fa-2x"></i>
+                    </span>
+                  </a>
+                  <a href="https://www.linkedin.com/in/justinnauta/" class="button is-medium">
+                    <span class="icon is-medium">
+                      <i class="fab fa-linkedin fa-2x"></i>
+                    </span>
+                  </a>
                 </div>
               </div>
             </div>
@@ -85,12 +81,12 @@ export default {
 <style lang="scss">
 @import "../assets/sass/main.scss";
 
-#about-socialLinks button {
+#about-socialLinks a {
   border: none;
   background: none;
 }
 
-#about-socialLinks button:hover {
+#about-socialLinks a:hover {
   color: $primary;
 }
 </style>
