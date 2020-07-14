@@ -23,7 +23,7 @@
                 <h2 class="title is-2 has-text-dark mt-0 mb-1">Justin Nauta</h2>
                 <p class="mb-1">{{ titleTag1 }} &bull; {{ titleTag2 }}</p>
                 <!-- Social Links -->
-                <div id="socialLinks">
+                <div id="about-socialLinks">
                   <form action="https://github.com/justinnauta" class="is-inline">
                     <button class="button is-medium mr-2">
                       <span class="icon is-medium">
@@ -85,12 +85,12 @@ export default {
 <style lang="scss">
 @import "../assets/sass/main.scss";
 
-#socialLinks button {
+#about-socialLinks button {
   border: none;
   background: none;
 }
 
-#socialLinks button:hover {
+#about-socialLinks button:hover {
   color: $primary;
 }
 </style>
