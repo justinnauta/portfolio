@@ -23,10 +23,10 @@
               <!-- Projects Columns -->
               <div class="columns">
                 <div class="column">
-                  <ProjectCard></ProjectCard>
+                  <ProjectCard :project="featuredProjects[0]"></ProjectCard>
                 </div>
                 <div class="column">
-                  <ProjectCard></ProjectCard>
+                  <ProjectCard :project="featuredProjects[1]"></ProjectCard>
                 </div>
               </div>
               <!-- View all button -->
@@ -62,7 +62,7 @@ export default {
     ProjectCard,
     DesignTriangle,
   },
-  props: ["summary"],
+  props: ["summary", "featuredProjects"],
 };
 </script>
 

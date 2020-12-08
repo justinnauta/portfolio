@@ -5,13 +5,20 @@
       <!-- Project image -->
       <div class="card-image">
         <figure class="image is-16by9">
-          <img src="../assets/media/notFound.png" alt="Project image" />
+          <img
+            :src="require(`@/assets/media/${project.imageName}`)"
+            alt="Project image"
+          />
         </figure>
       </div>
       <!-- Card content -->
       <div class="card-content has-text-centered has-text-dark">
-        <p class="title is-5 has-text-centered has-text-dark">Title of Project</p>
-        <p class="is-size-6">A quick, one-liner description of the project.</p>
+        <p class="title is-5 has-text-centered has-text-dark">
+          {{ project.title }}
+        </p>
+        <p class="is-size-6">
+          {{ project.oneLiner }}
+        </p>
         <button class="button is-link is-rounded mt-5">Learn More</button>
       </div>
     </div>
@@ -20,7 +27,8 @@
 
 <script>
 export default {
-  name: "ProjectCard"
+  name: "ProjectCard",
+  props: ["project"],
 };
 </script>
 

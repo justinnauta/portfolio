@@ -1,7 +1,10 @@
 <template>
   <div id="app">
-    <HeroHeader :summary="headerSummary"></HeroHeader>
-    <ProjectsPage></ProjectsPage>
+    <HeroHeader
+      :summary="headerSummary"
+      :featuredProjects="featuredProjects"
+    ></HeroHeader>
+    <ProjectsPage :projects="projects"></ProjectsPage>
     <AboutPage
       :titleTag1="aboutTitleTag1"
       :titleTag2="aboutTitleTag2"
@@ -12,10 +15,37 @@
 </template>
 
 <script>
+import ProjectInfo from "./ProjectInfo.js";
 import HeroHeader from "./components/HeroHeader.vue";
 import ProjectsPage from "./components/ProjectsPage";
 import AboutPage from "./components/AboutPage.vue";
 import ContactPage from "./components/ContactPage.vue";
+
+const testProject1 = new ProjectInfo(
+  "notFound.png",
+  "Test Project",
+  "This is the first test project (and it's featured!)"
+);
+const testProject2 = new ProjectInfo(
+  "notFound.png",
+  "Test Project 2",
+  "(TEST 2) A quick, one-liner description of the project."
+);
+const testProject3 = new ProjectInfo(
+  "notFound.png",
+  "Test Project 3",
+  "(TEST 3) A quick, one-liner description of the project."
+);
+const testProject4 = new ProjectInfo(
+  "notFound.png",
+  "Test Project 4",
+  "This is the fourth test project (and it's featured!)"
+);
+const testProject5 = new ProjectInfo(
+  "notFound.png",
+  "Test Project 5",
+  "(TEST 5) A quick, one-liner description of the project."
+);
 
 export default {
   name: "App",
@@ -29,12 +59,14 @@ export default {
     return {
       headerSummary:
         'This will be a very quick summary of the content on the "About" page, or something similar.',
-      aboutTitleTag1: "Software Engineer",
-      aboutTitleTag2: "Web Developer",
+      aboutTitleTag1: "Web Developer",
+      aboutTitleTag2: "Software Engineer",
       aboutDescription:
         'This will be a larger "About" section, describing more in depth information. Lorem ipsum dolor' +
         "sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." +
         "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo",
+      projects: [testProject1, testProject2, testProject3, testProject4, testProject5],
+      featuredProjects: [testProject1, testProject4]
     };
   },
 };

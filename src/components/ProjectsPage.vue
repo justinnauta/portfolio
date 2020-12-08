@@ -11,24 +11,13 @@
       <div class="hero-body">
         <div class="container has-text-centered">
           <h2 class="title is-2 has-text-light">My Projects</h2>
-          <div class="columns is-multiline">
-            <div class="column is-one-third">
-              <ProjectCard></ProjectCard>
-            </div>
-            <div class="column is-one-third">
-              <ProjectCard></ProjectCard>
-            </div>
-            <div class="column is-one-third">
-              <ProjectCard></ProjectCard>
-            </div>
-            <div class="column is-one-third">
-              <ProjectCard></ProjectCard>
-            </div>
-            <div class="column is-one-third">
-              <ProjectCard></ProjectCard>
-            </div>
-            <div class="column is-one-third">
-              <ProjectCard></ProjectCard>
+          <div class="columns is-centered is-multiline">
+            <div
+              class="column is-one-third"
+              v-for="project in projects"
+              :key="project.title"
+            >
+              <ProjectCard :project="project"></ProjectCard>
             </div>
           </div>
         </div>
@@ -52,6 +41,7 @@ export default {
     DesignTriangle,
     ProjectCard,
   },
+  props: ["projects"],
 };
 </script>
 
