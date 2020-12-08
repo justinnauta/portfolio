@@ -11,6 +11,26 @@
       <div class="hero-body">
         <div class="container has-text-centered">
           <h2 class="title is-2 has-text-light">My Projects</h2>
+          <div class="columns is-multiline">
+            <div class="column is-one-third">
+              <ProjectCard></ProjectCard>
+            </div>
+            <div class="column is-one-third">
+              <ProjectCard></ProjectCard>
+            </div>
+            <div class="column is-one-third">
+              <ProjectCard></ProjectCard>
+            </div>
+            <div class="column is-one-third">
+              <ProjectCard></ProjectCard>
+            </div>
+            <div class="column is-one-third">
+              <ProjectCard></ProjectCard>
+            </div>
+            <div class="column is-one-third">
+              <ProjectCard></ProjectCard>
+            </div>
+          </div>
         </div>
       </div>
       <!-- Footer -->
@@ -24,12 +44,14 @@
 
 <script>
 import DesignTriangle from "./DesignTriangle.vue";
+import ProjectCard from "./ProjectCard.vue";
 
 export default {
   name: "ProjectsPage",
   components: {
-    DesignTriangle
-  }
+    DesignTriangle,
+    ProjectCard,
+  },
 };
 </script>
 
