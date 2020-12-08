@@ -5,7 +5,7 @@
       <!-- Header -->
       <div class="hero-head">
         <!-- Triangle for slanted design -->
-        <DesignTriangle class="is-inverted is-top fill-light" />
+        <DesignTriangle class="is-top fill-light" :is-inverted="true" />
       </div>
       <!-- Content -->
       <div class="hero-body">

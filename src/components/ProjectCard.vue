@@ -1,6 +1,6 @@
 <template>
   <!-- A card for displaying a project-->
-  <div id="projectCard">
+  <div>
     <div class="card">
       <!-- Project image -->
       <div class="card-image">

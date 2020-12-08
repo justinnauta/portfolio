@@ -5,7 +5,7 @@
       <!-- Header -->
       <div class="hero-head">
         <!-- Triangle for slanted design -->
-        <DesignTriangle class="is-inverted is-top fill-light" />
+        <DesignTriangle class="is-top fill-light" :is-inverted="true" />
       </div>
       <!-- Content -->
       <div class="hero-body">
@@ -30,26 +30,24 @@
       <!-- Footer -->
       <div class="hero-foot">
         <footer class="footer has-background-dark py-1 px-3">
-          <div class="level is-mobile">
+          <div class="level">
             <div class="level-left">
               <div class="level-item">
                 <p>&copy; 2020 Justin Nauta. All Rights Reserved.</p>
               </div>
             </div>
             <!-- Social Links -->
-            <div id="contact-socialLinks">
-              <div class="level-right">
-                <div class="level-item mr-0">
+            <div id="contact-socialLinks" class="level-right">
+              <div class="level-item">
+                <div class="is-flex">
                   <a href="https://github.com/justinnauta" class="button is-large">
                     <span class="icon is-large">
-                      <i class="fab fa-github fa-2x"></i>
+                      <i class="fab fa-github fa-lg"></i>
                     </span>
                   </a>
-                </div>
-                <div class="level-item">
                   <a href="https://www.linkedin.com/in/justinnauta/" class="button is-large">
                     <span class="icon is-large">
-                      <i class="fab fa-linkedin fa-2x"></i>
+                      <i class="fab fa-linkedin fa-lg"></i>
                     </span>
                   </a>
                 </div>
@@ -68,8 +66,8 @@ import DesignTriangle from "./DesignTriangle.vue";
 export default {
   name: "ContactPage",
   components: {
-    DesignTriangle
-  }
+    DesignTriangle,
+  },
 };
 </script>
 

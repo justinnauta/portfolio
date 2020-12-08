@@ -5,7 +5,7 @@
       <!-- Header -->
       <div class="hero-head">
         <!-- Triangle for slanted design -->
-        <DesignTriangle class="is-inverted is-top" />
+        <DesignTriangle class="is-top" :is-inverted="true" />
       </div>
       <!-- Content -->
       <div class="hero-body">
@@ -40,7 +40,7 @@
             <!-- Second Column -->
             <div class="column">
               <h2 class="title is-2 has-text-dark">About Me</h2>
-              <p>{{ aboutDescription }}</p>
+              <p>{{ description }}</p>
               <div class="has-text-centered mt-4">
                 <button class="button is-link is-rounded is-medium">View Resume</button>
               </div>
@@ -63,18 +63,9 @@ import DesignTriangle from "./DesignTriangle.vue";
 export default {
   name: "AboutPage",
   components: {
-    DesignTriangle
+    DesignTriangle,
   },
-  data: function() {
-    return {
-      titleTag1: "Software Engineer",
-      titleTag2: "Web Developer",
-      aboutDescription:
-        'This will be a larger "About" section, describing more in depth information. Lorem ipsum dolor' +
-        "sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." +
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo"
-    };
-  }
+  props: ["titleTag1", "titleTag2", "description"],
 };
 </script>
 

@@ -11,7 +11,7 @@
             <div class="column">
               <div class="content is-medium has-text-dark has-text-centered-mobile">
                 <h1 class="title is-1 has-text-dark">Hi, I'm Justin.</h1>
-                <p>This will be a very quick summary of the content on the "About" page, or something similar.</p>
+                <p>{{ summary }}</p>
                 <div class="has-text-centered">
                   <a href="#contactPage" class="button is-link is-rounded is-medium">Contact</a>
                 </div>
@@ -42,7 +42,7 @@
       </div>
       <!-- Footer -->
       <div class="hero-foot">
-        <MainNav />
+        <MainNav id="mainNav" />
         <!-- Triangle for slanted design -->
         <DesignTriangle />
       </div>
@@ -60,8 +60,9 @@ export default {
   components: {
     MainNav,
     ProjectCard,
-    DesignTriangle
-  }
+    DesignTriangle,
+  },
+  props: ["summary"],
 };
 </script>
 
@@ -74,12 +75,36 @@ export default {
   }
 }
 
-/* For rotating the arrow on the view all button */
+// For rotating the arrow on the view all button
 .faIcon {
   transition: 0.3s;
 }
 
 #viewAllBtn:hover .faIcon {
   transform: rotateZ(90deg);
+}
+
+@include from($tablet) {
+  // For applying sticky effect
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .sticky + .hero {
+    padding-top: 60px;
+  }
+
+  // Bottom navbar transition styles
+  #mainNav {
+    background-color: transparent;
+    transition: background-color 0.1s;
+  }
+
+  #mainNav.sticky {
+    background-color: $dark;
+  }
 }
 </style>

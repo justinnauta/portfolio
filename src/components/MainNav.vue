@@ -4,7 +4,7 @@
     <nav class="navbar">
       <div class="navbar-brand">
         <!-- Current page (mobile) -->
-        <a href class="navbar-item is-size-5 is-hidden-desktop">Home</a>
+        <a href class="navbar-item is-size-5 is-hidden-desktop">{{ currentPage }}</a>
         <!-- Burger menu -->
         <a
           role="button"
@@ -20,12 +20,27 @@
         </a>
       </div>
       <!-- Menu items -->
-      <div id="navItems" class="navbar-menu">
+      <div class="navbar-menu">
         <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-          <a href="#heroHeader" class="navbar-item is-active" @click="navItemClicked">Home</a>
-          <a href="#projectsPage" class="navbar-item" @click="navItemClicked">Projects</a>
-          <a href="#aboutPage" class="navbar-item" @click="navItemClicked">About</a>
-          <a href="#contactPage" class="navbar-item" @click="navItemClicked">Contact</a>
+          <a
+            id="navItemHome"
+            href="#heroHeader"
+            class="navbar-item is-active"
+            @click="navItemClicked"
+          >Home</a>
+          <a
+            id="navItemProjects"
+            href="#projectsPage"
+            class="navbar-item"
+            @click="navItemClicked"
+          >Projects</a>
+          <a id="navItemAbout" href="#aboutPage" class="navbar-item" @click="navItemClicked">About</a>
+          <a
+            id="navItemContact"
+            href="#contactPage"
+            class="navbar-item"
+            @click="navItemClicked"
+          >Contact</a>
           <a href="#" class="navbar-item" @click="navItemClicked">Resume</a>
         </div>
       </div>
@@ -36,9 +51,67 @@
 <script>
 export default {
   name: "MainNav",
+  data: function () {
+    return {
+      currentPage: "Home",
+    };
+  },
+  mounted: function () {
+    let amt = 130;
+    let navbar = document.querySelector("#mainNav");
+    let sticky = navbar.offsetTop;
+
+    let contactOffset = document.querySelector("#contactPage").offsetTop - amt;
+    let aboutOffset = document.querySelector("#aboutPage").offsetTop - amt;
+    let projectsOffset = document.querySelector("#projectsPage").offsetTop - amt;
+
+    window.onresize = () => {
+      sticky = navbar.offsetTop - amt;
+
+      contactOffset = document.querySelector("#contactPage").offsetTop - amt;
+      aboutOffset = document.querySelector("#aboutPage").offsetTop - amt;
+      projectsOffset = document.querySelector("#projectsPage").offsetTop - amt;
+    };
+
+    window.onscroll = () => {
+      let windowOffset = window.pageYOffset;
+
+      if (windowOffset >= sticky) {
+        navbar.classList.add("sticky");
+      } else {
+        navbar.classList.remove("sticky");
+      }
+
+      if (windowOffset >= contactOffset) {
+        document
+          .querySelector(".navbar-item.is-active")
+          .classList.remove("is-active");
+        document.querySelector("#navItemContact").classList.add("is-active");
+        this.currentPage = "Contact";
+      } else if (windowOffset >= aboutOffset) {
+        document
+          .querySelector(".navbar-item.is-active")
+          .classList.remove("is-active");
+        document.querySelector("#navItemAbout").classList.add("is-active");
+        this.currentPage = "About";
+      } else if (windowOffset >= projectsOffset) {
+        document
+          .querySelector(".navbar-item.is-active")
+          .classList.remove("is-active");
+        document.querySelector("#navItemProjects").classList.add("is-active");
+        this.currentPage = "Projects";
+      } else {
+        document
+          .querySelector(".navbar-item.is-active")
+          .classList.remove("is-active");
+        document.querySelector("#navItemHome").classList.add("is-active");
+        this.currentPage = "Home";
+      }
+    };
+  },
   methods: {
     // Toggles the burger menu
-    openBurgerMenu: function(el) {
+    openBurgerMenu: function (el) {
       // Activate burger
       el.target.classList.toggle("is-active");
 
@@ -48,7 +121,7 @@ export default {
         .classList.toggle("is-active");
     },
     // Handles clicking a menu item
-    navItemClicked: function(el) {
+    navItemClicked: function (el) {
       // Un-highlight previous active item
       document
         .querySelector(".navbar-item.is-active")
@@ -63,8 +136,8 @@ export default {
       document
         .querySelector(`#${burger.dataset.target}`)
         .classList.remove("is-active");
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -116,6 +189,14 @@ export default {
 @include from($desktop) {
   .navbar-item {
     color: $dark !important;
+  }
+
+  .sticky {
+    border-bottom: 5px solid $link !important;
+  }
+
+  .sticky a {
+    color: $light !important;
   }
 }
 
