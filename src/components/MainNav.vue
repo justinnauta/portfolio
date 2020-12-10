@@ -221,6 +221,10 @@ export default {
 }
 
 /* General styles */
+#mainNav {
+  z-index: 1000;
+}
+
 .navbar-item.is-active {
   color: $link !important;
   background-color: transparent !important;

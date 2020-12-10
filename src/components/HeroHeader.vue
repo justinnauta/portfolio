@@ -19,13 +19,15 @@
             </div>
             <!-- Second Column -->
             <div class="column">
-              <h3 class="title is-3 has-text-dark has-text-centered-mobile">Featured Projects</h3>
+              <!-- Different title on mobile -->
+              <h3 class="title is-3 has-text-dark is-hidden-mobile">Featured Projects</h3>
+              <h3 class="title is-3 has-text-dark has-text-centered-mobile is-hidden-tablet pt-5">Featured Project</h3>
               <!-- Projects Columns -->
               <div class="columns">
-                <div class="column">
+                <div id="mobileFeaturedProject" class="column">
                   <ProjectCard :project="featuredProjects[0]"></ProjectCard>
                 </div>
-                <div class="column">
+                <div class="column is-hidden-mobile">
                   <ProjectCard :project="featuredProjects[1]"></ProjectCard>
                 </div>
               </div>
@@ -72,6 +74,11 @@ export default {
 @include until($tablet) {
   #heroHeader {
     margin-top: 30px;
+  }
+
+  #mobileFeaturedProject {
+    padding-left: 4rem;
+    padding-right: 4rem;
   }
 }
 
