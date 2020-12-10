@@ -16,9 +16,9 @@
           data-target="navbar-menu"
           @click="openBurgerMenu"
         >
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
+          <span aria-hidden="true" data-target="navbar-menu"></span>
+          <span aria-hidden="true" data-target="navbar-menu"></span>
+          <span aria-hidden="true" data-target="navbar-menu"></span>
         </a>
       </div>
       <!-- Menu items -->
