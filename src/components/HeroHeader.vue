@@ -41,7 +41,7 @@
         </div>
       </div>
       <!-- Footer -->
-      <div class="hero-foot">
+      <div id="mainFooter" class="hero-foot">
         <MainNav id="mainNav" />
         <!-- Triangle for slanted design -->
         <DesignTriangle />

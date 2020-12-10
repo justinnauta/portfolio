@@ -4,14 +4,16 @@
     <nav class="navbar">
       <div class="navbar-brand">
         <!-- Current page (mobile) -->
-        <a href class="navbar-item is-size-5 is-hidden-desktop">{{ currentPage }}</a>
+        <a href class="navbar-item is-size-5 is-hidden-tablet">
+          {{ currentPage }}
+        </a>
         <!-- Burger menu -->
         <a
           role="button"
           class="navbar-burger has-text-light"
           aria-label="menu"
           aria-expanded="false"
-          data-target="navItems"
+          data-target="navbar-menu"
           @click="openBurgerMenu"
         >
           <span aria-hidden="true"></span>
@@ -21,26 +23,35 @@
       </div>
       <!-- Menu items -->
       <div class="navbar-menu">
-        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center">
           <a
             id="navItemHome"
             href="#heroHeader"
             class="navbar-item is-active"
             @click="navItemClicked"
-          >Home</a>
+            >Home</a
+          >
           <a
             id="navItemProjects"
             href="#projectsPage"
             class="navbar-item"
             @click="navItemClicked"
-          >Projects</a>
-          <a id="navItemAbout" href="#aboutPage" class="navbar-item" @click="navItemClicked">About</a>
+            >Projects</a
+          >
+          <a
+            id="navItemAbout"
+            href="#aboutPage"
+            class="navbar-item"
+            @click="navItemClicked"
+            >About</a
+          >
           <a
             id="navItemContact"
             href="#contactPage"
             class="navbar-item"
             @click="navItemClicked"
-          >Contact</a>
+            >Contact</a
+          >
           <a href="#" class="navbar-item" @click="navItemClicked">Resume</a>
         </div>
       </div>
@@ -59,14 +70,16 @@ export default {
   mounted: function () {
     let amt = 130;
     let navbar = document.querySelector("#mainNav");
-    let sticky = navbar.offsetTop;
+    let sticky = document.querySelector("#mainFooter").offsetTop;
 
     let contactOffset = document.querySelector("#contactPage").offsetTop - amt;
     let aboutOffset = document.querySelector("#aboutPage").offsetTop - amt;
-    let projectsOffset = document.querySelector("#projectsPage").offsetTop - amt;
+    let projectsOffset =
+      document.querySelector("#projectsPage").offsetTop - amt;
 
     window.onresize = () => {
-      sticky = navbar.offsetTop - amt;
+      sticky = document.querySelector("#mainFooter").offsetTop;
+      -amt;
 
       contactOffset = document.querySelector("#contactPage").offsetTop - amt;
       aboutOffset = document.querySelector("#aboutPage").offsetTop - amt;
@@ -117,7 +130,7 @@ export default {
 
       // Activate menu items
       document
-        .querySelector(`#${el.target.dataset.target}`)
+        .querySelector(`.${el.target.dataset.target}`)
         .classList.toggle("is-active");
     },
     // Handles clicking a menu item
@@ -134,7 +147,7 @@ export default {
       let burger = document.querySelector(".navbar-burger");
       burger.classList.remove("is-active");
       document
-        .querySelector(`#${burger.dataset.target}`)
+        .querySelector(`.${burger.dataset.target}`)
         .classList.remove("is-active");
     },
   },
@@ -145,7 +158,7 @@ export default {
 @import "../assets/sass/main.scss";
 
 /* Mobile specific styles */
-@include until($desktop) {
+@include until($tablet) {
   #mainNav {
     position: absolute;
     top: 0;
@@ -155,6 +168,7 @@ export default {
     width: 100% !important;
     position: fixed !important;
     background-color: $dark !important;
+    box-shadow: 0px 4px 10px $dark;
   }
 
   .navbar-menu {
@@ -174,6 +188,7 @@ export default {
     height: 205px !important;
     pointer-events: auto !important;
     transition: height 0.3s ease-in !important;
+    box-shadow: 0px 2px 10px $dark;
   }
 
   .navbar-brand .navbar-item:hover {
@@ -186,13 +201,18 @@ export default {
 }
 
 /* Desktop specific styles */
-@include from($desktop) {
+@include from($tablet) {
+  .navbar-menu {
+    background-color: transparent !important;
+  }
+
   .navbar-item {
     color: $dark !important;
   }
 
   .sticky {
     border-bottom: 5px solid $link !important;
+    box-shadow: 0px 4px 10px $dark;
   }
 
   .sticky a {

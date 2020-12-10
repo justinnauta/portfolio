@@ -5,4 +5,8 @@ $link: #7298C4;
 $light: #F9F9F8;
 $dark: #212C38;
 
+// Allow full navbar on tablet
+@import "~bulma/sass/utilities/initial-variables.sass";
+$navbar-breakpoint: $tablet;
+
 @import '~bulma/bulma.sass';
