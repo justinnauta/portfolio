@@ -77,16 +77,15 @@ export default {
     let projectsOffset =
       document.querySelector("#projectsPage").offsetTop - amt;
 
-    window.onresize = () => {
+    window.addEventListener("resize", () => {
       sticky = document.querySelector("#mainFooter").offsetTop;
-      -amt;
 
       contactOffset = document.querySelector("#contactPage").offsetTop - amt;
       aboutOffset = document.querySelector("#aboutPage").offsetTop - amt;
       projectsOffset = document.querySelector("#projectsPage").offsetTop - amt;
-    };
+    });
 
-    window.onscroll = () => {
+    window.addEventListener("scroll", () => {
       let windowOffset = window.pageYOffset;
 
       if (windowOffset >= sticky) {
@@ -120,7 +119,7 @@ export default {
         document.querySelector("#navItemHome").classList.add("is-active");
         this.currentPage = "Home";
       }
-    };
+    });
   },
   methods: {
     // Toggles the burger menu

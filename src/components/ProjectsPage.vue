@@ -12,6 +12,7 @@
         <div class="container has-text-centered">
           <h2 class="title is-2 has-text-light">My Projects</h2>
           <div class="columns is-centered is-multiline">
+            <!-- Projects Columns -->
             <div
               class="column is-one-third is-hidden-mobile"
               v-for="project in projects"
@@ -19,8 +20,16 @@
             >
               <ProjectCard :project="project"></ProjectCard>
             </div>
-            <splide class="column is-one-third is-hidden-tablet" :options="splideOptions">
-              <splide-slide class="p-6" v-for="project in projects" :key="project.title">
+            <!-- Projects carousel (for mobile) -->
+            <splide
+              class="column is-one-third is-hidden-tablet"
+              :options="splideOptions"
+            >
+              <splide-slide
+                class="p-6"
+                v-for="project in projects"
+                :key="project.title"
+              >
                 <ProjectCard :project="project"></ProjectCard>
               </splide-slide>
             </splide>
@@ -51,12 +60,33 @@ export default {
     SplideSlide,
   },
   props: ["projects"],
-  data: function() {
+  data: function () {
     return {
       splideOptions: {
-        type: 'loop'
+        type: "loop",
       },
     };
+  },
+  mounted: function () {
+    // Add is-fullheight modifier to hero if not on mobile (causes display problems with the carousel on mobile)
+    let hero = document.querySelector("#projectsPage .hero");
+    if (window.innerWidth > 768 && !hero.classList.contains("is-fullheight")) {
+      hero.classList.add("is-fullheight");
+    }
+
+    // Add/remove is-fullheight depending on screen size
+    window.addEventListener("resize", () => {
+      if (hero.classList.contains("is-fullheight")) {
+        hero.classList.remove("is-fullheight");
+      }
+
+      if (
+        window.innerWidth > 768 &&
+        !hero.classList.contains("is-fullheight")
+      ) {
+        hero.classList.add("is-fullheight");
+      }
+    });
   },
 };
 </script>
