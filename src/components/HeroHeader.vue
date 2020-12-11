@@ -2,6 +2,8 @@
   <!-- Page header ("First page") -->
   <div id="heroHeader">
     <section class="hero is-fullheight is-light">
+      <!-- "Ghost" hero for slanted design -->
+      <div class="skew has-background-light"></div>
       <!-- Content -->
       <div class="hero-body">
         <div class="container">
@@ -10,7 +12,7 @@
             <!-- First Column -->
             <div class="column">
               <div class="content is-medium has-text-dark has-text-centered-mobile">
-                <h1 class="title is-1 has-text-dark">Hi, I'm Justin.</h1>
+                <h1 id="mainTitle" class="title is-1 has-text-dark">Hi, I'm Justin.</h1>
                 <p>{{ summary }}</p>
                 <div class="has-text-centered">
                   <a href="#contactPage" class="button is-link is-rounded is-medium">Contact</a>
@@ -45,8 +47,6 @@
       <!-- Footer -->
       <div id="mainFooter" class="hero-foot">
         <MainNav id="mainNav" />
-        <!-- Triangle for slanted design -->
-        <DesignTriangle />
       </div>
     </section>
   </div>
@@ -55,14 +55,12 @@
 <script>
 import MainNav from "./MainNav.vue";
 import ProjectCard from "./ProjectCard.vue";
-import DesignTriangle from "./DesignTriangle.vue";
 
 export default {
   name: "HeroHeader",
   components: {
     MainNav,
     ProjectCard,
-    DesignTriangle,
   },
   props: ["summary", "featuredProjects"],
 };
@@ -72,7 +70,7 @@ export default {
 @import "../assets/sass/main.scss";
 
 @include until($tablet) {
-  #heroHeader {
+  #mainTitle {
     margin-top: 30px;
   }
 

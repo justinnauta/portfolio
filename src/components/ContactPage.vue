@@ -1,12 +1,7 @@
 <template>
   <!-- Contact Page ("Fourth Page") -->
   <div id="contactPage">
-    <section class="hero is-fullheight is-primary">
-      <!-- Header -->
-      <div class="hero-head">
-        <!-- Triangle for slanted design -->
-        <DesignTriangle class="is-top fill-light" :is-inverted="true" />
-      </div>
+    <section class="hero is-fullheight">
       <!-- Content -->
       <div class="hero-body">
         <div class="container has-text-centered">
@@ -28,7 +23,7 @@
         </div>
       </div>
       <!-- Footer -->
-      <div class="hero-foot">
+      <div class="hero-foot has-text-light">
         <footer class="footer has-background-dark py-1 px-3">
           <div class="level">
             <div class="level-left">
@@ -61,13 +56,8 @@
 </template>
 
 <script>
-import DesignTriangle from "./DesignTriangle.vue";
-
 export default {
   name: "ContactPage",
-  components: {
-    DesignTriangle,
-  },
 };
 </script>
 

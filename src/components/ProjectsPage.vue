@@ -1,12 +1,9 @@
 <template>
   <!-- Projects Page ("Second Page") -->
   <div id="projectsPage">
-    <section class="hero is-primary">
-      <!-- Header -->
-      <div class="hero-head">
-        <!-- Triangle for slanted design -->
-        <DesignTriangle class="is-top fill-light" :is-inverted="true" />
-      </div>
+    <section class="hero is-light">
+      <!-- "Ghost" hero for slanted design -->
+      <div class="skew has-background-primary"></div>
       <!-- Content -->
       <div class="hero-body">
         <div class="container has-text-centered">
@@ -36,17 +33,11 @@
           </div>
         </div>
       </div>
-      <!-- Footer -->
-      <div class="hero-foot">
-        <!-- Triangle for slanted design -->
-        <DesignTriangle class="fill-light" />
-      </div>
     </section>
   </div>
 </template>
 
 <script>
-import DesignTriangle from "./DesignTriangle.vue";
 import ProjectCard from "./ProjectCard.vue";
 import { Splide, SplideSlide } from "@splidejs/vue-splide";
 import "@splidejs/splide/dist/css/themes/splide-skyblue.min.css";
@@ -54,7 +45,6 @@ import "@splidejs/splide/dist/css/themes/splide-skyblue.min.css";
 export default {
   name: "ProjectsPage",
   components: {
-    DesignTriangle,
     ProjectCard,
     Splide,
     SplideSlide,

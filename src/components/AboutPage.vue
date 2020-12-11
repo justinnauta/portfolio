@@ -1,12 +1,9 @@
 <template>
   <!-- About Page ("Third Page") -->
   <div id="aboutPage">
-    <section class="hero is-fullheight is-light">
-      <!-- Header -->
-      <div class="hero-head">
-        <!-- Triangle for slanted design -->
-        <DesignTriangle class="is-top" :is-inverted="true" />
-      </div>
+    <section class="hero is-fullheight">
+      <!-- "Ghost" hero for slanted design -->
+      <div class="skew has-background-light"></div>
       <!-- Content -->
       <div class="hero-body">
         <div class="container has-text-centered">
@@ -48,23 +45,13 @@
           </div>
         </div>
       </div>
-      <!-- Footer -->
-      <div class="hero-foot">
-        <!-- Triangle for slanted design -->
-        <DesignTriangle />
-      </div>
     </section>
   </div>
 </template>
 
 <script>
-import DesignTriangle from "./DesignTriangle.vue";
-
 export default {
   name: "AboutPage",
-  components: {
-    DesignTriangle,
-  },
   props: ["titleTag1", "titleTag2", "description"],
 };
 </script>
