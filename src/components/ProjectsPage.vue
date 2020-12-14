@@ -54,6 +54,7 @@ export default {
     return {
       splideOptions: {
         type: "loop",
+        perPage: 1
       },
     };
   },
@@ -81,27 +82,5 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import "../assets/sass/main.scss";
-
-// Adjust colors for the carousel
-.splide__arrow svg {
-  fill: $link !important;
-}
-
-.splide__arrow svg:hover {
-  fill: $link-hover !important;
-}
-
-.splide__pagination__page {
-  background-color: $light !important;
-}
-
-.splide__pagination__page:hover {
-  background-color: $link-hover !important;
-}
-
-.splide__pagination__page.is-active {
-  background-color: $link !important;
-}
+<style>
 </style>

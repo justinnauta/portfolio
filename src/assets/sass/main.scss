@@ -31,3 +31,25 @@ html, body {
     height: 100%;
     transform: skewY(-3deg);
 }
+
+// Adjust colors for splide
+.splide__arrow svg {
+    fill: $link !important;
+}
+
+.splide__arrow svg:hover {
+    fill: $link-hover !important;
+}
+
+.splide__pagination__page {
+    background-color: $light !important;
+    border: 0.5px solid $dark;
+}
+
+.splide__pagination__page:hover {
+    background-color: $link-hover !important;
+}
+
+.splide__pagination__page.is-active {
+    background-color: $link !important;
+}
