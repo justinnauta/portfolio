@@ -22,29 +22,54 @@ import AboutPage from "./components/AboutPage.vue";
 import ContactPage from "./components/ContactPage.vue";
 
 const testProject1 = new ProjectInfo(
-  "notFound.png",
+  ["notFound.png", "justin.jpg"],
   "Test Project",
-  "This is the first test project (and it's featured!)"
+  "This is the first test project (and it's featured!)",
+  "This is what my role in the project was",
+  ["Tech 1", "Tech 2", "Tech 3"],
+  "These are some difficulties I had",
+  "This was the solution to the difficulties",
+  "I'm proud of this notable feature"
 );
 const testProject2 = new ProjectInfo(
-  "notFound.png",
+  ["notFound.png", "justin.jpg"],
   "Test Project 2",
-  "(TEST 2) A quick, one-liner description of the project."
+  "(TEST 2) A quick, one-liner description of the project.",
+  "This is what my role in the project was",
+  ["Tech 1", "Tech 2", "Tech 3"],
+  "These are some difficulties I had",
+  "This was the solution to the difficulties",
+  "I'm proud of this notable feature"
 );
 const testProject3 = new ProjectInfo(
-  "notFound.png",
+  ["notFound.png", "justin.jpg"],
   "Test Project 3",
-  "(TEST 3) A quick, one-liner description of the project."
+  "(TEST 3) A quick, one-liner description of the project.",
+  "This is what my role in the project was",
+  ["Tech 1", "Tech 2", "Tech 3"],
+  "These are some difficulties I had",
+  "This was the solution to the difficulties",
+  "I'm proud of this notable feature"
 );
 const testProject4 = new ProjectInfo(
-  "notFound.png",
+  ["notFound.png", "justin.jpg"],
   "Test Project 4",
-  "This is the fourth test project (and it's featured!)"
+  "This is the fourth test project (and it's featured!)",
+  "This is what my role in the project was",
+  ["Tech 1", "Tech 2", "Tech 3"],
+  "These are some difficulties I had",
+  "This was the solution to the difficulties",
+  "I'm proud of this notable feature"
 );
 const testProject5 = new ProjectInfo(
-  "notFound.png",
+  ["notFound.png", "justin.jpg"],
   "Test Project 5",
-  "(TEST 5) A quick, one-liner description of the project."
+  "(TEST 5) A quick, one-liner description of the project.",
+  "This is what my role in the project was",
+  ["Tech 1", "Tech 2", "Tech 3"],
+  "These are some difficulties I had",
+  "This was the solution to the difficulties",
+  "I'm proud of this notable feature"
 );
 
 export default {
