@@ -221,7 +221,7 @@ export default {
 
 /* General styles */
 #mainNav {
-  z-index: 1000;
+  z-index: 5;
 }
 
 .navbar-item.is-active {
