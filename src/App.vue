@@ -29,7 +29,9 @@ const testProject1 = new ProjectInfo(
   ["Tech 1", "Tech 2", "Tech 3"],
   "These are some difficulties I had",
   "This was the solution to the difficulties",
-  "I'm proud of this notable feature"
+  "I'm proud of this notable feature",
+  null,
+  null
 );
 const testProject2 = new ProjectInfo(
   ["notFound.png", "justin.jpg"],
@@ -39,7 +41,9 @@ const testProject2 = new ProjectInfo(
   ["Tech 1", "Tech 2", "Tech 3"],
   "These are some difficulties I had",
   "This was the solution to the difficulties",
-  "I'm proud of this notable feature"
+  "I'm proud of this notable feature",
+  "http://github.com/",
+  "http://google.com/"
 );
 const testProject3 = new ProjectInfo(
   ["notFound.png", "justin.jpg"],
@@ -49,7 +53,9 @@ const testProject3 = new ProjectInfo(
   ["Tech 1", "Tech 2", "Tech 3"],
   "These are some difficulties I had",
   "This was the solution to the difficulties",
-  "I'm proud of this notable feature"
+  "I'm proud of this notable feature",
+  null,
+  null
 );
 const testProject4 = new ProjectInfo(
   ["notFound.png", "justin.jpg"],
@@ -59,7 +65,9 @@ const testProject4 = new ProjectInfo(
   ["Tech 1", "Tech 2", "Tech 3"],
   "These are some difficulties I had",
   "This was the solution to the difficulties",
-  "I'm proud of this notable feature"
+  "I'm proud of this notable feature",
+  "http://github.com/",
+  null
 );
 const testProject5 = new ProjectInfo(
   ["notFound.png", "justin.jpg"],
@@ -69,7 +77,9 @@ const testProject5 = new ProjectInfo(
   ["Tech 1", "Tech 2", "Tech 3"],
   "These are some difficulties I had",
   "This was the solution to the difficulties",
-  "I'm proud of this notable feature"
+  "I'm proud of this notable feature",
+  null,
+  "http://google.com/"
 );
 
 export default {
@@ -90,8 +100,14 @@ export default {
         'This will be a larger "About" section, describing more in depth information. Lorem ipsum dolor' +
         "sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." +
         "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo",
-      projects: [testProject1, testProject2, testProject3, testProject4, testProject5],
-      featuredProjects: [testProject1, testProject4]
+      projects: [
+        testProject1,
+        testProject2,
+        testProject3,
+        testProject4,
+        testProject5,
+      ],
+      featuredProjects: [testProject1, testProject4],
     };
   },
 };
