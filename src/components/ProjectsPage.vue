@@ -34,11 +34,16 @@
         </div>
       </div>
     </section>
+    <!-- 1 Modal Per Project -->
+    <div>
+      <ProjectModal v-for="project in projects" :key="project.title" :project="project"></ProjectModal>
+    </div>
   </div>
 </template>
 
 <script>
 import ProjectCard from "./ProjectCard.vue";
+import ProjectModal from "./ProjectModal.vue";
 import { Splide, SplideSlide } from "@splidejs/vue-splide";
 import "@splidejs/splide/dist/css/themes/splide-skyblue.min.css";
 
@@ -46,6 +51,7 @@ export default {
   name: "ProjectsPage",
   components: {
     ProjectCard,
+    ProjectModal,
     Splide,
     SplideSlide,
   },
@@ -54,7 +60,7 @@ export default {
     return {
       splideOptions: {
         type: "loop",
-        perPage: 1
+        perPage: 1,
       },
     };
   },

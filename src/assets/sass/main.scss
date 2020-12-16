@@ -1,14 +1,16 @@
 @charset 'utf-8';
 
+// Customizations of bulma variables
+@import "~bulma/sass/utilities/initial-variables.sass";
+
 $primary: #465D78;
 $link: #7298C4;
 $link-hover: #638fc2;
 $light: #F9F9F8;
 $dark: #212C38;
 
-// Allow full navbar on tablet
-@import "~bulma/sass/utilities/initial-variables.sass";
-$navbar-breakpoint: $tablet;
+$navbar-breakpoint: $tablet; // Allow full navbar on tablet
+$modal-content-width: 60%;
 
 @import '~bulma/bulma.sass';
 
