@@ -14,52 +14,63 @@
         </header>
         <section class="modal-card-body has-background-light">
           <div class="columns is-vcentered">
-            <splide class="column is-half" :options="splideOptions">
-              <splide-slide
-                class="mb-4"
-                v-for="imageName in project.imageNames"
-                :key="imageName"
-              >
-                <img
-                  :src="require(`@/assets/media/${imageName}`)"
-                  alt="Project image"
-                />
-              </splide-slide>
-            </splide>
+            <div class="column is-half">
+              <splide :options="splideOptions">
+                <splide-slide
+                  class="mb-5"
+                  v-for="imageName in project.imageNames"
+                  :key="imageName"
+                >
+                  <img
+                    :src="require(`@/assets/media/${imageName}`)"
+                    alt="Project image"
+                  />
+                </splide-slide>
+              </splide>
+              <p class="mt-4">{{ project.oneLiner }}</p>
+            </div>
             <div class="column">
-              <p>{{ project.oneLiner }}</p>
-              <div class="columns">
-                <div class="column">
-                  <p>My Role</p>
-                  <p>{{ project.role }}</p>
-                </div>
-                <div class="column">
-                  <p>Tech Used</p>
-                  <ul>
-                    <li v-for="tech in project.techUsed" :key="tech">
-                      {{ tech }}
-                    </li>
-                  </ul>
-                </div>
+              <p class="title is-5 mb-0">My Role</p>
+              <p class="mb-5">{{ project.role }}</p>
+
+              <p class="title is-5 mb-0">Technologies</p>
+              <div class="mb-5">
+                <span v-for="(tech, i) in project.techUsed" :key="tech">
+                  {{ tech }}
+                  <span v-if="i < project.techUsed.length - 1">
+                    &nbsp;&bull;&nbsp;
+                  </span>
+                </span>
               </div>
-              <div class="columns">
-                <div class="column">
-                  <p>Difficulties</p>
-                  <p>{{ project.difficulties }}</p>
-                </div>
-                <div class="column">
-                  <p>Solution</p>
-                  <p>{{ project.solution }}</p>
-                </div>
-              </div>
-              <p>Notable Features</p>
+
+              <p class="title is-5 mb-0">Difficulties</p>
+              <p class="mb-5">{{ project.difficulties }}</p>
+
+              <p class="title is-5 mb-0">Solution</p>
+              <p class="mb-5">{{ project.solution }}</p>
+
+              <p class="title is-5 mb-0">Notable Features</p>
               <p>{{ project.notable }}</p>
             </div>
           </div>
           <div class="columns is-centered">
             <div class="column">
-              <button class="button is-link mr-3" disabled>Source Code</button>
-              <button class="button is-link" disabled>Live Version</button>
+              <a
+                :id="projectID + '-srcLink'"
+                class="button is-link mr-3"
+                :href="project.srcLink"
+                :disabled="project.srcLink == null"
+                :title="project.srcLink == null ? 'Not Available' : ''"
+                >Source Code
+              </a>
+              <a
+                :id="projectID + '-liveLink'"
+                class="button is-link"
+                :href="project.liveLink"
+                :disabled="project.liveLink == null"
+                :title="project.liveLink == null ? 'Not Available' : ''"
+                >Live Version
+              </a>
             </div>
           </div>
         </section>
