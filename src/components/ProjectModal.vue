@@ -27,7 +27,7 @@
                   />
                 </splide-slide>
               </splide>
-              <p class="mt-4">{{ project.oneLiner }}</p>
+              <p class="mt-4">{{ project.description }}</p>
             </div>
             <div class="column">
               <p class="title is-5 mb-0">My Role</p>
