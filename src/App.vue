@@ -22,7 +22,7 @@ import AboutPage from "./components/AboutPage.vue";
 import ContactPage from "./components/ContactPage.vue";
 
 const myPortfolio = new ProjectInfo(
-  ["notFound.png", "justin.jpg"],
+  ["myPortfolio_01.jpg", "myPortfolio_02.jpg", "myPortfolio_03.jpg"],
 
   "My Portfolio",
 
@@ -55,7 +55,7 @@ const myPortfolio = new ProjectInfo(
 );
 
 const avangridProjectTasks = new ProjectInfo(
-  ["notFound.png", "justin.jpg"],
+  ["avangridProjectTasks_01.jpg", "avangridProjectTasks_02.jpg", "avangridProjectTasks_03.jpg"],
 
   "Avangrid Project Tasks",
 
@@ -92,7 +92,7 @@ const avangridProjectTasks = new ProjectInfo(
 );
 
 const collegeFinder = new ProjectInfo(
-  ["notFound.png", "justin.jpg"],
+  ["collegeFinder_01.jpg", "collegeFinder_02.jpg", "collegeFinder_03.jpg"],
 
   "College Finder",
 
@@ -126,7 +126,7 @@ const collegeFinder = new ProjectInfo(
 );
 
 const audioVisualizer = new ProjectInfo(
-  ["notFound.png", "justin.jpg"],
+  ["audioVisualizer_01.jpg", "audioVisualizer_02.jpg"],
 
   "Audio Visualizer",
 
@@ -158,7 +158,7 @@ const audioVisualizer = new ProjectInfo(
 );
 
 const ritWebsite = new ProjectInfo(
-  ["notFound.png", "justin.jpg"],
+  ["itsWebsite_01.jpg", "itsWebsite_02.jpg", "itsWebsite_03.jpg"],
 
   "RIT Website Re-Imagining",
 
