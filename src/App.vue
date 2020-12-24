@@ -22,7 +22,7 @@ import AboutPage from "./components/AboutPage.vue";
 import ContactPage from "./components/ContactPage.vue";
 
 const myPortfolio = new ProjectInfo(
-  ["myPortfolio_01.jpg", "myPortfolio_02.jpg", "myPortfolio_03.jpg"],
+  ["myPortfolio_01.jpg", "myPortfolio_03.jpg", "myPortfolio_02.jpg"],
 
   "My Portfolio",
 
