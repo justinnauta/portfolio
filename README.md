@@ -1,5 +1,5 @@
 # Justin Nauta's Web Portfolio
-This website serves as a source of professional information about myself, including my resume and projects I have done.
+This website serves as a source of professional information about myself, including my resume and projects I have done. You can find it at [justinnauta.com](https://justinnauta.com)
 
 ## My Role
 
