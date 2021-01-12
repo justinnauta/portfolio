@@ -49,9 +49,9 @@ const myPortfolio = new ProjectInfo(
     "section, and then sticks to the top once you scroll passed it. This was a little " +
     "more of a challenge to implement than a basic navbar.",
 
-  null,
+  "https://github.com/justinnauta/portfolio",
 
-  null
+  "https://justinnauta.com"
 );
 
 const avangridProjectTasks = new ProjectInfo(
@@ -120,9 +120,9 @@ const collegeFinder = new ProjectInfo(
     "list of colleges meeting certain parameters. Those colleges are then fed into the second API, " +
     "which pulls information from the college websites for display in the app.",
 
-  null,
+  "https://github.com/justinnauta/college-finder",
 
-  null
+  "https://people.rit.edu/jrn2778/330/project3/"
 );
 
 const audioVisualizer = new ProjectInfo(
@@ -152,9 +152,9 @@ const audioVisualizer = new ProjectInfo(
     "rather than using the browser defaults. These controls include a play/pause button, a time " +
     "scrubber, a volume slider, and a song selector, all of which I designed and programmed.",
 
-  null,
+  "https://github.com/justinnauta/audio-visualizer",
 
-  null
+  "https://people.rit.edu/jrn2778/330/project2/"
 );
 
 const ritWebsite = new ProjectInfo(
@@ -185,7 +185,7 @@ const ritWebsite = new ProjectInfo(
 
   "Nearly all the website’s content is dynamically inserted after being retrieved from RIT’s ITS API.",
 
-  null,
+  "https://github.com/justinnauta/rit-website",
 
   null
 );
