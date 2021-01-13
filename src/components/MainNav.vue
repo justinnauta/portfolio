@@ -52,7 +52,7 @@
             @click="navItemClicked"
             >Contact</a
           >
-          <a href="#" class="navbar-item" @click="navItemClicked">Resume</a>
+          <a href="/Nauta_Resume.pdf" class="navbar-item" @click="navItemClicked">Resume</a>
         </div>
       </div>
     </nav>

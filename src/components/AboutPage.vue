@@ -39,7 +39,7 @@
               <h2 class="title is-2 has-text-dark">About Me</h2>
               <p>{{ description }}</p>
               <div class="has-text-centered mt-4">
-                <button class="button is-link is-rounded is-medium">View Resume</button>
+                <a href="/Nauta_Resume.pdf" class="button is-link is-rounded is-medium">View Resume</a>
               </div>
             </div>
           </div>
