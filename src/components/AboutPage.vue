@@ -65,6 +65,6 @@ export default {
 }
 
 #about-socialLinks a:hover {
-  color: $primary;
+  color: $link;
 }
 </style>
