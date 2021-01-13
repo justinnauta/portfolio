@@ -76,9 +76,7 @@ export default {
       const formData = new FormData(document.querySelector("#contactForm"))
       let xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function () {
-        console.log(this.readyState);
         if (this.readyState == 4 && this.status == 200) {
-          console.log("REsponse");
           console.log(this.responseText);
         }
       };
