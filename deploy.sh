@@ -7,6 +7,8 @@ npm run build
 
 cd dist
 
+echo 'justinnauta.com' > CNAME
+
 git init
 git add -A
 git commit -m 'deploy'
