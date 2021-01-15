@@ -1,5 +1,5 @@
 <template>
-  <!-- Contact Page ("Fourth Page") -->
+  <!-- Contact Page (Fourth Section) -->
   <div id="contactPage">
     <section class="hero is-fullheight">
       <!-- Content -->
@@ -8,6 +8,7 @@
           <h2 class="title is-2 has-text-light">Contact Me</h2>
           <div class="columns">
             <div class="column is-half is-offset-one-quarter">
+              <!-- Success/Error message for the form -->
               <article
                 v-if="formResponse.message"
                 class="message"
@@ -23,12 +24,13 @@
                   <button
                     class="delete ml-2"
                     aria-label="delete"
-                    @click="closeFormResponse"
+                    @click="formResponse.message = null"
                   ></button>
                 </div>
               </article>
             </div>
           </div>
+          <!-- The form -->
           <div class="columns">
             <form
               class="column is-half is-offset-one-quarter"
@@ -54,7 +56,7 @@
               <textarea
                 class="textarea is-primary"
                 rows="10"
-                placeholder="Message"
+                placeholder="Message..."
                 name="message"
                 v-model="formData.message"
                 required
@@ -115,16 +117,16 @@
 </template>
 
 <script>
-const axios = require("axios");
+const axios = require('axios');
 
 export default {
-  name: "ContactPage",
-  data: function () {
+  name: 'ContactPage',
+  data: function() {
     return {
       formData: {
         name: null,
         email: null,
-        message: null
+        message: null,
       },
       formResponse: {
         success: false,
@@ -134,7 +136,7 @@ export default {
     };
   },
   methods: {
-    submitForm: function () {
+    submitForm: function() {
       // Check to prevent double clicks
       if (this.loading) return;
       else this.loading = true;
@@ -146,7 +148,7 @@ export default {
       }
 
       axios
-        .post("https://people.rit.edu/jrn2778/personal/php/contact.php", data)
+        .post('https://people.rit.edu/jrn2778/personal/php/contact.php', data)
         .then((response) => {
           this.formResponse.success = response.data.success;
           this.formResponse.message = response.data.response;
@@ -154,17 +156,14 @@ export default {
         .catch(() => {
           this.formResponse.success = false;
           this.formResponse.message =
-            "An unknown error has occurred. If the problem persists and you need to get in touch, feel free to contact me via LinkedIn.";
+            'An unknown error has occurred. If the problem persists and you need to get in touch, feel free to contact me via LinkedIn.';
         })
         .then(() => {
           this.loading = false;
           if (this.formResponse.success) this.clearForm();
         });
     },
-    closeFormResponse: function () {
-      this.formResponse.message = null;
-    },
-    clearForm: function () {
+    clearForm: function() {
       for (let key in this.formData) {
         this.formData[key] = null;
       }
@@ -174,7 +173,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../assets/sass/main.scss";
+@import '../assets/sass/main.scss';
 
 #contact-socialLinks a {
   border: none;

@@ -1,5 +1,5 @@
 <template>
-  <!-- Projects Page ("Second Page") -->
+  <!-- Projects Page (Second Section) -->
   <div id="projectsPage">
     <section class="hero is-light" :class="{ 'is-fullheight': !windowIsSmall }">
       <!-- "Ghost" hero for slanted design -->
@@ -46,36 +46,35 @@
 </template>
 
 <script>
-import ProjectCard from "./ProjectCard.vue";
-import { Splide, SplideSlide } from "@splidejs/vue-splide";
-import "@splidejs/splide/dist/css/themes/splide-skyblue.min.css";
+import ProjectCard from './ProjectCard.vue';
+import { Splide, SplideSlide } from '@splidejs/vue-splide';
+import '@splidejs/splide/dist/css/themes/splide-skyblue.min.css';
 
 export default {
-  name: "ProjectsPage",
+  name: 'ProjectsPage',
   components: {
     ProjectCard,
     Splide,
     SplideSlide,
   },
-  props: ["projects"],
-  data: function () {
+  props: ['projects'],
+  data: function() {
     return {
       splideOptions: {
-        type: "loop",
+        type: 'loop',
         perPage: 1,
       },
       windowIsSmall: false,
     };
   },
-  mounted: function () {
+  mounted: function() {
     // Add/remove is-fullheight depending on screen size
     this.windowIsSmall = window.innerWidth <= 768;
-    window.addEventListener("resize", () => {
+    window.addEventListener('resize', () => {
       this.windowIsSmall = window.innerWidth <= 768;
     });
-  }
+  },
 };
 </script>
 
-<style>
-</style>
+<style></style>

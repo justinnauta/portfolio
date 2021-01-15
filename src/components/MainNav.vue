@@ -1,9 +1,9 @@
 <template>
   <!-- Main navigation bar -->
-  <div id="mainNav" :class="{ 'sticky': offsets.window >= offsets.sticky }">
+  <div :class="{ sticky: offsets.window >= offsets.sticky }">
     <nav class="navbar">
       <div class="navbar-brand">
-        <!-- Current page (mobile) -->
+        <!-- Current page (for mobile) -->
         <a href class="navbar-item is-size-5 is-hidden-tablet">
           {{ currentPage }}
         </a>
@@ -29,39 +29,56 @@
             href="#heroHeader"
             class="navbar-item"
             :class="{ 'is-active': currentPage == 'Home' }"
-            @click="currentPage = 'Home'; burgerOpen = false"
-            >Home</a
+            @click="
+              currentPage = 'Home';
+              burgerOpen = false;
+            "
           >
+            Home
+          </a>
           <a
             id="navItemProjects"
             href="#projectsPage"
             class="navbar-item"
             :class="{ 'is-active': currentPage == 'Projects' }"
-            @click="currentPage = 'Projects'; burgerOpen = false"
-            >Projects</a
+            @click="
+              currentPage = 'Projects';
+              burgerOpen = false;
+            "
           >
+            Projects
+          </a>
           <a
             id="navItemAbout"
             href="#aboutPage"
             class="navbar-item"
             :class="{ 'is-active': currentPage == 'About' }"
-            @click="currentPage = 'About'; burgerOpen = false"
-            >About</a
+            @click="
+              currentPage = 'About';
+              burgerOpen = false;
+            "
           >
+            About
+          </a>
           <a
             id="navItemContact"
             href="#contactPage"
             class="navbar-item"
             :class="{ 'is-active': currentPage == 'Contact' }"
-            @click="currentPage = 'Contact'; burgerOpen = false"
-            >Contact</a
+            @click="
+              currentPage = 'Contact';
+              burgerOpen = false;
+            "
           >
+            Contact
+          </a>
           <a
             href="/Nauta_Resume.pdf"
             class="navbar-item"
             @click="burgerOpen = false"
-            >Resume</a
           >
+            Resume
+          </a>
         </div>
       </div>
     </nav>
@@ -70,8 +87,8 @@
 
 <script>
 export default {
-  name: "MainNav",
-  data: function () {
+  name: 'MainNav',
+  data: function() {
     return {
       burgerOpen: false,
       sectionBuffer: 50,
@@ -85,47 +102,43 @@ export default {
     };
   },
   computed: {
-    currentPage: function () {
+    currentPage: function() {
       if (this.offsets.window >= this.offsets.contact) {
-        return "Contact";
+        return 'Contact';
       } else if (this.offsets.window >= this.offsets.about) {
-        return "About";
+        return 'About';
       } else if (this.offsets.window >= this.offsets.project) {
-        return "Projects";
+        return 'Projects';
       } else {
-        return "Home";
+        return 'Home';
       }
     },
   },
-  mounted: function () {
+  mounted: function() {
+    // Update the section offsets so the navbar can update appropriatley
     this.updateOffsets();
-    window.addEventListener("scroll", this.updateOffsets);
+    window.addEventListener('scroll', this.updateOffsets);
   },
   methods: {
-    updateOffsets: function () {
+    updateOffsets: function() {
       this.offsets.window = window.pageYOffset;
-      this.offsets.sticky = document.querySelector("#mainFooter").offsetTop;
+      this.offsets.sticky = document.querySelector('#mainFooter').offsetTop;
       this.offsets.contact =
-        document.querySelector("#contactPage").offsetTop - this.sectionBuffer;
+        document.querySelector('#contactPage').offsetTop - this.sectionBuffer;
       this.offsets.about =
-        document.querySelector("#aboutPage").offsetTop - this.sectionBuffer;
+        document.querySelector('#aboutPage').offsetTop - this.sectionBuffer;
       this.offsets.project =
-        document.querySelector("#projectsPage").offsetTop - this.sectionBuffer;
+        document.querySelector('#projectsPage').offsetTop - this.sectionBuffer;
     },
   },
 };
 </script>
 
 <style lang="scss">
-@import "../assets/sass/main.scss";
+@import '../assets/sass/main.scss';
 
 /* Mobile specific styles */
 @include until($tablet) {
-  #mainNav {
-    position: absolute;
-    top: 0;
-  }
-
   .navbar {
     width: 100% !important;
     position: fixed !important;
@@ -183,10 +196,6 @@ export default {
 }
 
 /* General styles */
-#mainNav {
-  z-index: 5;
-}
-
 .navbar-item.is-active {
   color: $link !important;
   background-color: transparent !important;

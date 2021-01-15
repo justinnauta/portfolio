@@ -1,5 +1,5 @@
 <template>
-  <!-- Page header ("First page") -->
+  <!-- Page header (First Section) -->
   <div id="heroHeader">
     <section class="hero is-fullheight is-light">
       <!-- "Ghost" hero for slanted design -->
@@ -22,8 +22,9 @@
                   <a
                     href="#contactPage"
                     class="button is-link is-rounded is-medium"
-                    >Contact</a
                   >
+                    Contact
+                  </a>
                 </div>
               </div>
             </div>
@@ -83,21 +84,21 @@
 </template>
 
 <script>
-import MainNav from "./MainNav.vue";
-import ProjectCard from "./ProjectCard.vue";
+import MainNav from './MainNav.vue';
+import ProjectCard from './ProjectCard.vue';
 
 export default {
-  name: "HeroHeader",
+  name: 'HeroHeader',
   components: {
     MainNav,
     ProjectCard,
   },
-  props: ["summary", "projects", "featuredProjectsIndex"],
+  props: ['summary', 'projects', 'featuredProjectsIndex'],
 };
 </script>
 
 <style lang="scss">
-@import "../assets/sass/main.scss";
+@import '../assets/sass/main.scss';
 
 @include until($tablet) {
   #mainTitle {
@@ -108,15 +109,11 @@ export default {
     padding-left: 4rem;
     padding-right: 4rem;
   }
-}
 
-// For rotating the arrow on the view all button
-.faIcon {
-  transition: 0.3s;
-}
-
-#viewAllBtn:hover .faIcon {
-  transform: rotateZ(90deg);
+  #mainNav {
+    position: absolute;
+    top: 0;
+  }
 }
 
 @include from($tablet) {
@@ -139,7 +136,21 @@ export default {
   }
 
   #mainNav.sticky {
-    background-color: $dark;
+    background-color: $dark !important;
   }
+}
+
+/* General styles */
+#mainNav {
+  z-index: 5;
+}
+
+// For rotating the arrow on the view all button
+.faIcon {
+  transition: 0.3s;
+}
+
+#viewAllBtn:hover .faIcon {
+  transform: rotateZ(90deg);
 }
 </style>

@@ -1,13 +1,13 @@
 @charset 'utf-8';
 
 // Customizations of bulma variables
-@import "~bulma/sass/utilities/initial-variables.sass";
+@import '~bulma/sass/utilities/initial-variables.sass';
 
 $primary: #334561;
 $link: #5d9c5b;
-$link-hover: #4D824B;
-$light: #F9F9F8;
-$dark: #1C2636;
+$link-hover: #4d824b;
+$light: #f9f9f8;
+$dark: #1c2636;
 
 $navbar-breakpoint: $tablet; // Allow full navbar on tablet
 $modal-content-width: 80%;
@@ -15,43 +15,44 @@ $modal-content-width: 80%;
 @import '~bulma/bulma.sass';
 
 // Styles required for "skewed" design
-html, body {
-    background-color: $primary;
+html,
+body {
+  background-color: $primary;
 }
 
 .hero {
-    position: relative;
+  position: relative;
 }
 
 .skew {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    transform: skewY(-3deg);
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  transform: skewY(-3deg);
 }
 
 // Adjust colors for splide
 .splide__arrow svg {
-    fill: $link !important;
+  fill: $link !important;
 }
 
 .splide__arrow svg:hover {
-    fill: $link-hover !important;
+  fill: $link-hover !important;
 }
 
 .splide__pagination__page {
-    background-color: $light !important;
-    border: 0.5px solid $dark;
+  background-color: $light !important;
+  border: 0.5px solid $dark;
 }
 
 .splide__pagination__page:hover {
-    background-color: $link-hover !important;
+  background-color: $link-hover !important;
 }
 
 .splide__pagination__page.is-active {
-    background-color: $link !important;
+  background-color: $link !important;
 }

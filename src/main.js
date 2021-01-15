@@ -9,7 +9,7 @@ import './assets/sass/main.scss';
 import { library, dom } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 // Setup font awesome
 library.add(faChevronRight, faGithub, faLinkedin);
@@ -19,5 +19,5 @@ Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.config.productionTip = false;
 
 new Vue({
-  render: h => h(App),
+  render: (h) => h(App),
 }).$mount('#app');
