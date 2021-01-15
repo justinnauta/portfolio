@@ -20,8 +20,8 @@
                 <p>{{ summary }}</p>
                 <div class="has-text-centered">
                   <a
-                    href="#contactPage"
                     class="button is-link is-rounded is-medium"
+                    @click="scrollToSection('#contactPage')"
                   >
                     Contact
                   </a>
@@ -59,9 +59,9 @@
               <!-- View all button -->
               <div class="has-text-right has-text-centered-mobile">
                 <a
-                  href="#projectsPage"
                   class="button is-link is-rounded is-medium"
                   id="viewAllBtn"
+                  @click="scrollToSection('#projectsPage')"
                 >
                   View All
                   <font-awesome-icon
@@ -77,7 +77,7 @@
       </div>
       <!-- Footer -->
       <div id="mainFooter" class="hero-foot">
-        <MainNav id="mainNav" />
+        <MainNav id="mainNav" @nav-clicked="scrollToSection" />
       </div>
     </section>
   </div>
@@ -94,6 +94,14 @@ export default {
     ProjectCard,
   },
   props: ['summary', 'projects', 'featuredProjectsIndex'],
+  methods: {
+    scrollToSection: function(sectionID) {
+      window.scrollTo({
+        top: document.querySelector(sectionID).offsetTop,
+        behavior: 'smooth',
+      });
+    },
+  },
 };
 </script>
 

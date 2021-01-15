@@ -26,49 +26,33 @@
         <div class="navbar-start" style="flex-grow: 1; justify-content: center">
           <a
             id="navItemHome"
-            href="#heroHeader"
             class="navbar-item"
             :class="{ 'is-active': currentPage == 'Home' }"
-            @click="
-              currentPage = 'Home';
-              burgerOpen = false;
-            "
+            @click="navClicked('#heroHeader')"
           >
             Home
           </a>
           <a
             id="navItemProjects"
-            href="#projectsPage"
             class="navbar-item"
             :class="{ 'is-active': currentPage == 'Projects' }"
-            @click="
-              currentPage = 'Projects';
-              burgerOpen = false;
-            "
+            @click="navClicked('#projectsPage')"
           >
             Projects
           </a>
           <a
             id="navItemAbout"
-            href="#aboutPage"
             class="navbar-item"
             :class="{ 'is-active': currentPage == 'About' }"
-            @click="
-              currentPage = 'About';
-              burgerOpen = false;
-            "
+            @click="navClicked('#aboutPage')"
           >
             About
           </a>
           <a
             id="navItemContact"
-            href="#contactPage"
             class="navbar-item"
             :class="{ 'is-active': currentPage == 'Contact' }"
-            @click="
-              currentPage = 'Contact';
-              burgerOpen = false;
-            "
+            @click="navClicked('#contactPage')"
           >
             Contact
           </a>
@@ -118,8 +102,10 @@ export default {
     // Update the section offsets so the navbar can update appropriatley
     this.updateOffsets();
     window.addEventListener('scroll', this.updateOffsets);
+    window.addEventListener('resize', this.updateOffsets);
   },
   methods: {
+    // Gets the location of the top of each section
     updateOffsets: function() {
       this.offsets.window = window.pageYOffset;
       this.offsets.sticky = document.querySelector('#mainFooter').offsetTop;
@@ -129,6 +115,10 @@ export default {
         document.querySelector('#aboutPage').offsetTop - this.sectionBuffer;
       this.offsets.project =
         document.querySelector('#projectsPage').offsetTop - this.sectionBuffer;
+    },
+    navClicked: function(sectionID) {
+      this.$emit('nav-clicked', sectionID);
+      this.burgerOpen = false;
     },
   },
 };
