@@ -28,17 +28,10 @@
 <script>
 export default {
   name: "ProjectCard",
-  props: ["project"],
-  computed: {
-    projectID: function () {
-      return this.project.title.replace(/\s/g, "").toLowerCase();
-    },
-  },
+  props: ["project", "projectNumber"],
   methods: {
     learnMoreClicked: function () {
-      document
-        .querySelector(`#${this.projectID}-modal`)
-        .classList.add("is-active");
+      this.$emit("project-clicked", this.projectNumber);
 
       // Resize event so slider size can be calculated properly after modal is shown
       const ev = new Event("resize");

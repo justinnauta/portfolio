@@ -1,7 +1,7 @@
 <template>
   <!-- Modal for displaying more information about a project -->
   <div>
-    <div :id="projectID + '-modal'" class="modal">
+    <div class="modal is-active">
       <div class="modal-background"></div>
       <div class="modal-card has-text-centered">
         <header class="modal-card-head has-background-primary">
@@ -56,7 +56,6 @@
           <div class="columns is-centered">
             <div class="column">
               <a
-                :id="projectID + '-srcLink'"
                 class="button is-link mr-3"
                 :href="project.srcLink"
                 :disabled="project.srcLink == null"
@@ -64,7 +63,6 @@
                 >Source Code
               </a>
               <a
-                :id="projectID + '-liveLink'"
                 class="button is-link"
                 :href="project.liveLink"
                 :disabled="project.liveLink == null"
@@ -101,16 +99,9 @@ export default {
       },
     };
   },
-  computed: {
-    projectID: function () {
-      return this.project.title.replace(/\s/g, "").toLowerCase();
-    },
-  },
   methods: {
     closeModal: function () {
-      document
-        .querySelector(`#${this.projectID}-modal`)
-        .classList.remove("is-active");
+      this.$emit("project-clicked", -1);
     },
   },
 };

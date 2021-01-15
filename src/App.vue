@@ -2,9 +2,19 @@
   <div id="app">
     <HeroHeader
       :summary="headerSummary"
-      :featuredProjects="featuredProjects"
+      :projects="projects"
+      :featuredProjectsIndex="featuredProjectsIndex"
+      @project-clicked="projectClickedEvent"
     ></HeroHeader>
-    <ProjectsPage :projects="projects"></ProjectsPage>
+    <ProjectsPage
+      :projects="projects"
+      @project-clicked="projectClickedEvent"
+    ></ProjectsPage>
+    <ProjectModal
+      v-if="currentProjectModal > -1"
+      :project="projects[currentProjectModal]"
+      @project-clicked="projectClickedEvent"
+    ></ProjectModal>
     <AboutPage
       :titleTag1="aboutTitleTag1"
       :titleTag2="aboutTitleTag2"
@@ -18,6 +28,7 @@
 import ProjectInfo from "./ProjectInfo.js";
 import HeroHeader from "./components/HeroHeader.vue";
 import ProjectsPage from "./components/ProjectsPage";
+import ProjectModal from "./components/ProjectModal.vue";
 import AboutPage from "./components/AboutPage.vue";
 import ContactPage from "./components/ContactPage.vue";
 
@@ -47,7 +58,8 @@ const myPortfolio = new ProjectInfo(
   "The navbar is unique/atypical. Typically, navbars will be seen at the top of " +
     "the page and stick there. My portfolio’s navbar starts at the bottom of the first " +
     "section, and then sticks to the top once you scroll passed it. This was a little " +
-    "more of a challenge to implement than a basic navbar.",
+    "more of a challenge to implement than a basic navbar, especially since the mobile navbar " +
+    "behaves differently than the desktop one.",
 
   "https://github.com/justinnauta/portfolio",
 
@@ -55,7 +67,11 @@ const myPortfolio = new ProjectInfo(
 );
 
 const avangridProjectTasks = new ProjectInfo(
-  ["avangridProjectTasks_01.jpg", "avangridProjectTasks_02.jpg", "avangridProjectTasks_03.jpg"],
+  [
+    "avangridProjectTasks_01.jpg",
+    "avangridProjectTasks_02.jpg",
+    "avangridProjectTasks_03.jpg",
+  ],
 
   "Avangrid Project Tasks",
 
@@ -195,6 +211,7 @@ export default {
   components: {
     HeroHeader,
     ProjectsPage,
+    ProjectModal,
     AboutPage,
     ContactPage,
   },
@@ -223,8 +240,16 @@ export default {
         audioVisualizer,
         ritWebsite,
       ],
-      featuredProjects: [collegeFinder, avangridProjectTasks],
+      featuredProjectsIndex: [0, 1],
+      currentProjectModal: -1,
     };
+  },
+  methods: {
+    // Triggered when the "Learn More" button is clicked on a project card,
+    // or if a project modal is closed.
+    projectClickedEvent: function (projectNumber) {
+      this.currentProjectModal = projectNumber;
+    },
   },
 };
 </script>

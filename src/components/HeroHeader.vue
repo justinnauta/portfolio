@@ -11,33 +11,63 @@
           <div class="columns is-vcentered">
             <!-- First Column -->
             <div class="column">
-              <div class="content is-medium has-text-dark has-text-centered-mobile">
-                <h1 id="mainTitle" class="title is-1 has-text-dark">Hi, I'm Justin.</h1>
+              <div
+                class="content is-medium has-text-dark has-text-centered-mobile"
+              >
+                <h1 id="mainTitle" class="title is-1 has-text-dark">
+                  Hi, I'm Justin.
+                </h1>
                 <p>{{ summary }}</p>
                 <div class="has-text-centered">
-                  <a href="#contactPage" class="button is-link is-rounded is-medium">Contact</a>
+                  <a
+                    href="#contactPage"
+                    class="button is-link is-rounded is-medium"
+                    >Contact</a
+                  >
                 </div>
               </div>
             </div>
             <!-- Second Column -->
             <div class="column">
               <!-- Different title on mobile -->
-              <h3 class="title is-3 has-text-dark is-hidden-mobile">Featured Projects</h3>
-              <h3 class="title is-3 has-text-dark has-text-centered-mobile is-hidden-tablet pt-5">Featured Project</h3>
+              <h3 class="title is-3 has-text-dark is-hidden-mobile">
+                Featured Projects
+              </h3>
+              <h3
+                class="title is-3 has-text-dark has-text-centered-mobile is-hidden-tablet pt-5"
+              >
+                Featured Project
+              </h3>
               <!-- Projects Columns -->
               <div class="columns">
                 <div id="mobileFeaturedProject" class="column">
-                  <ProjectCard :project="featuredProjects[0]"></ProjectCard>
+                  <ProjectCard
+                    :project="projects[featuredProjectsIndex[0]]"
+                    :projectNumber="featuredProjectsIndex[0]"
+                    v-on="$listeners"
+                  ></ProjectCard>
                 </div>
                 <div class="column is-hidden-mobile">
-                  <ProjectCard :project="featuredProjects[1]"></ProjectCard>
+                  <ProjectCard
+                    :project="projects[featuredProjectsIndex[1]]"
+                    :projectNumber="featuredProjectsIndex[1]"
+                    v-on="$listeners"
+                  ></ProjectCard>
                 </div>
               </div>
               <!-- View all button -->
               <div class="has-text-right has-text-centered-mobile">
-                <a href="#projectsPage" class="button is-link is-rounded is-medium" id="viewAllBtn">
+                <a
+                  href="#projectsPage"
+                  class="button is-link is-rounded is-medium"
+                  id="viewAllBtn"
+                >
                   View All
-                  <font-awesome-icon class="faIcon" icon="chevron-right" fixed-width />
+                  <font-awesome-icon
+                    class="faIcon"
+                    icon="chevron-right"
+                    fixed-width
+                  />
                 </a>
               </div>
             </div>
@@ -62,7 +92,7 @@ export default {
     MainNav,
     ProjectCard,
   },
-  props: ["summary", "featuredProjects"],
+  props: ["summary", "projects", "featuredProjectsIndex"],
 };
 </script>
 

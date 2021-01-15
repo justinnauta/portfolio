@@ -1,7 +1,7 @@
 <template>
   <!-- Projects Page ("Second Page") -->
   <div id="projectsPage">
-    <section class="hero is-light">
+    <section class="hero is-light" :class="{ 'is-fullheight': !windowIsSmall }">
       <!-- "Ghost" hero for slanted design -->
       <div class="skew has-background-primary"></div>
       <!-- Content -->
@@ -12,10 +12,14 @@
             <!-- Projects Columns -->
             <div
               class="column is-one-third is-hidden-mobile"
-              v-for="project in projects"
+              v-for="(project, index) in projects"
               :key="project.title"
             >
-              <ProjectCard :project="project"></ProjectCard>
+              <ProjectCard
+                :project="project"
+                :projectNumber="index"
+                v-on="$listeners"
+              ></ProjectCard>
             </div>
             <!-- Projects carousel (for mobile) -->
             <splide
@@ -24,26 +28,25 @@
             >
               <splide-slide
                 class="p-6"
-                v-for="project in projects"
+                v-for="(project, index) in projects"
                 :key="project.title"
               >
-                <ProjectCard :project="project"></ProjectCard>
+                <ProjectCard
+                  :project="project"
+                  :projectNumber="index"
+                  v-on="$listeners"
+                ></ProjectCard>
               </splide-slide>
             </splide>
           </div>
         </div>
       </div>
     </section>
-    <!-- 1 Modal Per Project -->
-    <div>
-      <ProjectModal v-for="project in projects" :key="project.title" :project="project"></ProjectModal>
-    </div>
   </div>
 </template>
 
 <script>
 import ProjectCard from "./ProjectCard.vue";
-import ProjectModal from "./ProjectModal.vue";
 import { Splide, SplideSlide } from "@splidejs/vue-splide";
 import "@splidejs/splide/dist/css/themes/splide-skyblue.min.css";
 
@@ -51,7 +54,6 @@ export default {
   name: "ProjectsPage",
   components: {
     ProjectCard,
-    ProjectModal,
     Splide,
     SplideSlide,
   },
@@ -62,29 +64,16 @@ export default {
         type: "loop",
         perPage: 1,
       },
+      windowIsSmall: false,
     };
   },
   mounted: function () {
-    // Add is-fullheight modifier to hero if not on mobile (causes display problems with the carousel on mobile)
-    let hero = document.querySelector("#projectsPage .hero");
-    if (window.innerWidth > 768 && !hero.classList.contains("is-fullheight")) {
-      hero.classList.add("is-fullheight");
-    }
-
     // Add/remove is-fullheight depending on screen size
+    this.windowIsSmall = window.innerWidth <= 768;
     window.addEventListener("resize", () => {
-      if (hero.classList.contains("is-fullheight")) {
-        hero.classList.remove("is-fullheight");
-      }
-
-      if (
-        window.innerWidth > 768 &&
-        !hero.classList.contains("is-fullheight")
-      ) {
-        hero.classList.add("is-fullheight");
-      }
+      this.windowIsSmall = window.innerWidth <= 768;
     });
-  },
+  }
 };
 </script>
 

@@ -1,6 +1,6 @@
 <template>
   <!-- Main navigation bar -->
-  <div id="mainNav">
+  <div id="mainNav" :class="{ 'sticky': offsets.window >= offsets.sticky }">
     <nav class="navbar">
       <div class="navbar-brand">
         <!-- Current page (mobile) -->
@@ -11,48 +11,57 @@
         <a
           role="button"
           class="navbar-burger has-text-light"
+          :class="{ 'is-active': burgerOpen }"
           aria-label="menu"
           aria-expanded="false"
-          data-target="navbar-menu"
-          @click="openBurgerMenu"
+          @click="burgerOpen = !burgerOpen"
         >
-          <span aria-hidden="true" data-target="navbar-menu"></span>
-          <span aria-hidden="true" data-target="navbar-menu"></span>
-          <span aria-hidden="true" data-target="navbar-menu"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
         </a>
       </div>
       <!-- Menu items -->
-      <div class="navbar-menu">
+      <div class="navbar-menu" :class="{ 'is-active': burgerOpen }">
         <div class="navbar-start" style="flex-grow: 1; justify-content: center">
           <a
             id="navItemHome"
             href="#heroHeader"
-            class="navbar-item is-active"
-            @click="navItemClicked"
+            class="navbar-item"
+            :class="{ 'is-active': currentPage == 'Home' }"
+            @click="currentPage = 'Home'; burgerOpen = false"
             >Home</a
           >
           <a
             id="navItemProjects"
             href="#projectsPage"
             class="navbar-item"
-            @click="navItemClicked"
+            :class="{ 'is-active': currentPage == 'Projects' }"
+            @click="currentPage = 'Projects'; burgerOpen = false"
             >Projects</a
           >
           <a
             id="navItemAbout"
             href="#aboutPage"
             class="navbar-item"
-            @click="navItemClicked"
+            :class="{ 'is-active': currentPage == 'About' }"
+            @click="currentPage = 'About'; burgerOpen = false"
             >About</a
           >
           <a
             id="navItemContact"
             href="#contactPage"
             class="navbar-item"
-            @click="navItemClicked"
+            :class="{ 'is-active': currentPage == 'Contact' }"
+            @click="currentPage = 'Contact'; burgerOpen = false"
             >Contact</a
           >
-          <a href="/Nauta_Resume.pdf" class="navbar-item" @click="navItemClicked">Resume</a>
+          <a
+            href="/Nauta_Resume.pdf"
+            class="navbar-item"
+            @click="burgerOpen = false"
+            >Resume</a
+          >
         </div>
       </div>
     </nav>
@@ -64,90 +73,44 @@ export default {
   name: "MainNav",
   data: function () {
     return {
-      currentPage: "Home",
+      burgerOpen: false,
+      sectionBuffer: 50,
+      offsets: {
+        window: 0,
+        sticky: 0,
+        contact: 0,
+        about: 0,
+        project: 0,
+      },
     };
   },
+  computed: {
+    currentPage: function () {
+      if (this.offsets.window >= this.offsets.contact) {
+        return "Contact";
+      } else if (this.offsets.window >= this.offsets.about) {
+        return "About";
+      } else if (this.offsets.window >= this.offsets.project) {
+        return "Projects";
+      } else {
+        return "Home";
+      }
+    },
+  },
   mounted: function () {
-    let amt = 130;
-    let navbar = document.querySelector("#mainNav");
-    let sticky = document.querySelector("#mainFooter").offsetTop;
-
-    let contactOffset = document.querySelector("#contactPage").offsetTop - amt;
-    let aboutOffset = document.querySelector("#aboutPage").offsetTop - amt;
-    let projectsOffset =
-      document.querySelector("#projectsPage").offsetTop - amt;
-
-    window.addEventListener("resize", () => {
-      sticky = document.querySelector("#mainFooter").offsetTop;
-
-      contactOffset = document.querySelector("#contactPage").offsetTop - amt;
-      aboutOffset = document.querySelector("#aboutPage").offsetTop - amt;
-      projectsOffset = document.querySelector("#projectsPage").offsetTop - amt;
-    });
-
-    window.addEventListener("scroll", () => {
-      let windowOffset = window.pageYOffset;
-
-      if (windowOffset >= sticky) {
-        navbar.classList.add("sticky");
-      } else {
-        navbar.classList.remove("sticky");
-      }
-
-      if (windowOffset >= contactOffset) {
-        document
-          .querySelector(".navbar-item.is-active")
-          .classList.remove("is-active");
-        document.querySelector("#navItemContact").classList.add("is-active");
-        this.currentPage = "Contact";
-      } else if (windowOffset >= aboutOffset) {
-        document
-          .querySelector(".navbar-item.is-active")
-          .classList.remove("is-active");
-        document.querySelector("#navItemAbout").classList.add("is-active");
-        this.currentPage = "About";
-      } else if (windowOffset >= projectsOffset) {
-        document
-          .querySelector(".navbar-item.is-active")
-          .classList.remove("is-active");
-        document.querySelector("#navItemProjects").classList.add("is-active");
-        this.currentPage = "Projects";
-      } else {
-        document
-          .querySelector(".navbar-item.is-active")
-          .classList.remove("is-active");
-        document.querySelector("#navItemHome").classList.add("is-active");
-        this.currentPage = "Home";
-      }
-    });
+    this.updateOffsets();
+    window.addEventListener("scroll", this.updateOffsets);
   },
   methods: {
-    // Toggles the burger menu
-    openBurgerMenu: function (el) {
-      // Activate burger
-      el.target.classList.toggle("is-active");
-
-      // Activate menu items
-      document
-        .querySelector(`.${el.target.dataset.target}`)
-        .classList.toggle("is-active");
-    },
-    // Handles clicking a menu item
-    navItemClicked: function (el) {
-      // Un-highlight previous active item
-      document
-        .querySelector(".navbar-item.is-active")
-        .classList.remove("is-active");
-
-      // Highlight clicked item
-      el.target.classList.add("is-active");
-
-      // Close burger menu and the menu items
-      let burger = document.querySelector(".navbar-burger");
-      burger.classList.remove("is-active");
-      document
-        .querySelector(`.${burger.dataset.target}`)
-        .classList.remove("is-active");
+    updateOffsets: function () {
+      this.offsets.window = window.pageYOffset;
+      this.offsets.sticky = document.querySelector("#mainFooter").offsetTop;
+      this.offsets.contact =
+        document.querySelector("#contactPage").offsetTop - this.sectionBuffer;
+      this.offsets.about =
+        document.querySelector("#aboutPage").offsetTop - this.sectionBuffer;
+      this.offsets.project =
+        document.querySelector("#projectsPage").offsetTop - this.sectionBuffer;
     },
   },
 };
@@ -231,6 +194,10 @@ export default {
 
 .navbar-start .navbar-item:hover {
   color: $link !important;
+  background-color: transparent !important;
+}
+
+.navbar-item {
   background-color: transparent !important;
 }
 </style>
