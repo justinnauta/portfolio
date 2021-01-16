@@ -108,7 +108,10 @@ export default {
     // Gets the location of the top of each section
     updateOffsets: function() {
       this.offsets.window = window.pageYOffset;
-      this.offsets.sticky = document.querySelector('#mainFooter').offsetTop;
+      this.offsets.sticky =
+        document.querySelector('#heroHeader').offsetTop +
+        document.querySelector('#heroHeader').offsetHeight -
+        document.querySelector('#mainNav').offsetHeight;
       this.offsets.contact =
         document.querySelector('#contactPage').offsetTop - this.sectionBuffer;
       this.offsets.about =

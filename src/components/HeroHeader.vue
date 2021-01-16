@@ -133,10 +133,6 @@ export default {
     z-index: 1;
   }
 
-  .sticky + .hero {
-    padding-top: 60px;
-  }
-
   // Bottom navbar transition styles
   #mainNav {
     background-color: transparent;
