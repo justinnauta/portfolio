@@ -1,6 +1,6 @@
 <template>
   <!-- A card for displaying a project-->
-  <div class="card">
+  <div class="card is-flex is-flex-direction-column">
     <!-- Project image -->
     <div class="card-image">
       <figure class="image is-16by9">
@@ -11,19 +11,23 @@
       </figure>
     </div>
     <!-- Card content -->
-    <div class="card-content has-text-centered has-text-dark">
+    <div class="card-content has-text-centered has-text-dark is-flex-grow-1">
       <p class="title is-5 has-text-centered has-text-dark">
         {{ project.title }}
       </p>
       <p class="is-size-6">
         {{ project.oneLiner }}
       </p>
-      <button
-        class="button is-link is-rounded mt-5"
-        @click="$emit('project-clicked', projectNumber)"
-      >
-        Learn More
-      </button>
+    </div>
+    <div class="columns is-centered is-mobile">
+      <div class="column is-two-thirds m-5">
+        <button
+          class="button is-link is-rounded is-fullwidth"
+          @click="$emit('project-clicked', projectNumber)"
+        >
+          Learn More
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -36,8 +40,7 @@ export default {
 </script>
 
 <style>
-.card,
-.card-content {
+.card {
   height: 100%;
 }
 </style>
