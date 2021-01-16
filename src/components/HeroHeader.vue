@@ -14,71 +14,79 @@
               <div
                 class="content is-medium has-text-dark has-text-centered-mobile"
               >
-                <h1 id="mainTitle" class="title is-1 has-text-dark">
-                  Hi, I'm Justin.
+                <h1 id="mainTitle" class="title is-1 has-text-dark typewriter">
+                  {{ mainTitleText }}
                 </h1>
-                <p>{{ summary }}</p>
-                <div class="has-text-centered">
-                  <a
-                    class="button is-link is-rounded is-medium"
-                    @click="scrollToSection('#contactPage')"
-                  >
-                    Contact
-                  </a>
-                </div>
+                <transition name="fadein-left">
+                  <div v-if="fadeIn">
+                    <p>{{ summary }}</p>
+                    <div class="has-text-centered">
+                      <a
+                        class="button is-link is-rounded is-medium"
+                        @click="scrollToSection('#contactPage')"
+                      >
+                        Contact
+                      </a>
+                    </div>
+                  </div>
+                </transition>
               </div>
             </div>
             <!-- Second Column -->
-            <div class="column">
-              <!-- Different title on mobile -->
-              <h3 class="title is-3 has-text-dark is-hidden-mobile">
-                Featured Projects
-              </h3>
-              <h3
-                class="title is-3 has-text-dark has-text-centered-mobile is-hidden-tablet pt-5"
-              >
-                Featured Project
-              </h3>
-              <!-- Projects Columns -->
-              <div class="columns">
-                <div id="mobileFeaturedProject" class="column">
-                  <ProjectCard
-                    :project="projects[featuredProjectsIndex[0]]"
-                    :projectNumber="featuredProjectsIndex[0]"
-                    v-on="$listeners"
-                  ></ProjectCard>
-                </div>
-                <div class="column is-hidden-mobile">
-                  <ProjectCard
-                    :project="projects[featuredProjectsIndex[1]]"
-                    :projectNumber="featuredProjectsIndex[1]"
-                    v-on="$listeners"
-                  ></ProjectCard>
-                </div>
-              </div>
-              <!-- View all button -->
-              <div class="has-text-right has-text-centered-mobile">
-                <a
-                  class="button is-link is-rounded is-medium"
-                  id="viewAllBtn"
-                  @click="scrollToSection('#projectsPage')"
+            <transition name="fadein-right">
+              <div class="column" v-if="fadeIn">
+                <!-- Different title on mobile -->
+                <h3 class="title is-3 has-text-dark is-hidden-mobile">
+                  Featured Projects
+                </h3>
+                <h3
+                  class="title is-3 has-text-dark has-text-centered-mobile is-hidden-tablet pt-5"
                 >
-                  View All
-                  <font-awesome-icon
-                    class="faIcon"
-                    icon="chevron-right"
-                    fixed-width
-                  />
-                </a>
+                  Featured Project
+                </h3>
+                <!-- Projects Columns -->
+                <div class="columns">
+                  <div id="mobileFeaturedProject" class="column">
+                    <ProjectCard
+                      :project="projects[featuredProjectsIndex[0]]"
+                      :projectNumber="featuredProjectsIndex[0]"
+                      v-on="$listeners"
+                    ></ProjectCard>
+                  </div>
+                  <div class="column is-hidden-mobile">
+                    <ProjectCard
+                      :project="projects[featuredProjectsIndex[1]]"
+                      :projectNumber="featuredProjectsIndex[1]"
+                      v-on="$listeners"
+                    ></ProjectCard>
+                  </div>
+                </div>
+                <!-- View all button -->
+                <div class="has-text-right has-text-centered-mobile">
+                  <a
+                    class="button is-link is-rounded is-medium"
+                    id="viewAllBtn"
+                    @click="scrollToSection('#projectsPage')"
+                  >
+                    View All
+                    <font-awesome-icon
+                      class="faIcon"
+                      icon="chevron-right"
+                      fixed-width
+                    />
+                  </a>
+                </div>
               </div>
-            </div>
+            </transition>
           </div>
         </div>
       </div>
       <!-- Footer -->
-      <div id="mainFooter" class="hero-foot">
-        <MainNav id="mainNav" @nav-clicked="scrollToSection" />
-      </div>
+      <transition name="fadein">
+        <div id="mainFooter" class="hero-foot" v-if="fadeIn">
+          <MainNav id="mainNav" @nav-clicked="scrollToSection" />
+        </div>
+      </transition>
     </section>
   </div>
 </template>
@@ -93,6 +101,19 @@ export default {
     MainNav,
     ProjectCard,
   },
+  data: function() {
+    return {
+      fadeIn: false,
+      mainTitleText: "Hi, I'm Justin.",
+    };
+  },
+  mounted: function() {
+    this.fadeIn = true;
+
+    const originalTitle = this.mainTitleText;
+    this.mainTitleText = '';
+    this.animateTitle(originalTitle, 0);
+  },
   props: ['summary', 'projects', 'featuredProjectsIndex'],
   methods: {
     scrollToSection: function(sectionID) {
@@ -100,6 +121,15 @@ export default {
         top: document.querySelector(sectionID).offsetTop,
         behavior: 'smooth',
       });
+    },
+    animateTitle: function(originalTitle, i) {
+      if (i < originalTitle.length) {
+        this.mainTitleText += originalTitle.charAt(i);
+        i++;
+        setTimeout(() => {
+          this.animateTitle(originalTitle, i);
+        }, 70);
+      }
     },
   },
 };
@@ -130,7 +160,7 @@ export default {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1;
+    z-index: 5;
   }
 
   // Bottom navbar transition styles
@@ -142,11 +172,6 @@ export default {
   #mainNav.sticky {
     background-color: $dark !important;
   }
-}
-
-/* General styles */
-#mainNav {
-  z-index: 5;
 }
 
 // For rotating the arrow on the view all button

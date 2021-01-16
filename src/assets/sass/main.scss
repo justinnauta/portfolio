@@ -56,3 +56,26 @@ body {
 .splide__pagination__page.is-active {
   background-color: $link !important;
 }
+
+/* Animations */
+.fadein-enter {
+  opacity: 0;
+}
+
+.fadein-left-enter {
+  transform: translateX(-250px);
+  opacity: 0;
+}
+
+.fadein-right-enter {
+  transform: translateX(250px);
+  opacity: 0;
+}
+
+.fadein-enter-active,
+.fadein-left-enter-active,
+.fadein-right-enter-active {
+  transition: all 1.5s;
+  transition-delay: 1s;
+  transition-timing-function: ease-out;
+}
