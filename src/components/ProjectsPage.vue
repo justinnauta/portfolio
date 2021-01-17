@@ -1,7 +1,7 @@
 <template>
   <!-- Projects Page (Second Section) -->
   <div id="projectsPage">
-    <section class="hero is-light" :class="{ 'is-fullheight': !windowIsSmall }">
+    <section class="hero is-light">
       <!-- "Ghost" hero for slanted design -->
       <div class="skew has-background-primary"></div>
       <!-- Content -->
@@ -64,15 +64,7 @@ export default {
         type: 'loop',
         perPage: 1,
       },
-      windowIsSmall: false,
     };
-  },
-  mounted: function() {
-    // Add/remove is-fullheight depending on screen size
-    this.windowIsSmall = window.innerWidth <= 768;
-    window.addEventListener('resize', () => {
-      this.windowIsSmall = window.innerWidth <= 768;
-    });
   },
 };
 </script>
