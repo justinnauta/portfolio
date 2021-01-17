@@ -178,16 +178,16 @@ const ritWebsite = new ProjectInfo(
 
   'RIT Website Re-Imagining',
 
-  'A re-imagining of RIT’s ITS website.',
+  'A re-imagining of RIT’s IT website.',
 
-  'This website was built as a re-imagined version of RIT’s ITS website. ' +
-    'All the data is dynamically loaded from RIT’s ITS API, which provides almost all the text on the page.',
+  'This website was built as a re-imagined version of RIT’s IT website. ' +
+    'All the data is dynamically loaded from RIT’s IT API, which provides almost all the text on the page.',
 
   'Sole Developer (The entirety of the website was developed by me)',
 
   ['React', 'JQuery', 'Bulma'],
 
-  'Since all the content of the website came from RIT’s ITS API, I had to work ' +
+  'Since all the content of the website came from RIT’s IT API, I had to work ' +
     'with their formatting of the content. Each section of content was formatted a ' +
     'little differently, so I had to make sure I was properly retrieving the data for ' +
     'each individual section, rather than having a catch-all solution.',
@@ -199,7 +199,7 @@ const ritWebsite = new ProjectInfo(
     'experimentation in checking what data I received. Because of this I was able to ' +
     'properly format the data for each section.',
 
-  'Nearly all the website’s content is dynamically inserted after being retrieved from RIT’s ITS API.',
+  'Nearly all the website’s content is dynamically inserted after being retrieved from RIT’s IT API.',
 
   'https://github.com/justinnauta/rit-website',
 
@@ -220,14 +220,13 @@ export default {
       headerSummary:
         'Thank you for taking the time to look at my portfolio! Here you can find information and demos on ' +
         'various projects and work I have done. Right now, I am actively seeking full time opportunities in ' +
-        'web development or software development (available starting June 2021). Feel free to contact me via ' +
-        'the contact form with any questions or inquiries.',
+        'web and software development. Feel free to contact me via the contact form with any questions or inquiries.',
       aboutTitleTag1: 'Web Developer',
       aboutTitleTag2: 'Software Engineer',
       aboutDescription:
         'I am a programmer at heart; I have a deep love for learning and problem solving. Ever since I was ' +
         'eleven years old I have not stopped learning about programming and looking for ways to enhance my ' +
-        'knowledge. I was lucky enough to work for ID Tech in the summers of 2018 and 2019 teaching various ' +
+        'knowledge. I was lucky enough to work for iD Tech in the summers of 2018 and 2019 teaching various ' +
         'computing topics, and then at Avangrid in the summer of 2020 developing a web app as an IT Applications ' +
         'Intern. This coming Spring, I will be graduating from the Rochester Institute of Technology (RIT) with ' +
         'a Bachelor of Science in Game Design and Development and minors in Web Development, Mobile Development, ' +
