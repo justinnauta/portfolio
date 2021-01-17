@@ -9,6 +9,9 @@ $link-hover: #4d824b;
 $light: #f9f9f8;
 $dark: #1c2636;
 
+// Image sizes
+$dimensions: 16 24 32 48 64 96 128 256 !default;
+
 $navbar-breakpoint: $tablet; // Allow full navbar on tablet
 $modal-content-width: 80%;
 

@@ -13,7 +13,7 @@
             <div class="column is-narrow is-4">
               <div class="content is-medium has-text-dark">
                 <!-- Image -->
-                <figure class="image is-inline-block mb-2">
+                <figure class="image is-inline-block mb-2 is-256x256">
                   <img
                     class="is-rounded"
                     src="../assets/media/justin.jpg"
