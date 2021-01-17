@@ -219,18 +219,18 @@ export default {
     return {
       headerSummary:
         'Thank you for taking the time to look at my portfolio! Here you can find information and demos on ' +
-        'various projects and work I have done. Right now, I am actively seeking full time opportunities in ' +
+        'various projects and work I have completed. I am actively seeking full time opportunities in ' +
         'web and software development. Feel free to contact me via the contact form with any questions or inquiries.',
       aboutTitleTag1: 'Web Developer',
       aboutTitleTag2: 'Software Engineer',
       aboutDescription:
         'I am a programmer at heart; I have a deep love for learning and problem solving. Ever since I was ' +
         'eleven years old I have not stopped learning about programming and looking for ways to enhance my ' +
-        'knowledge. I was lucky enough to work for iD Tech in the summers of 2018 and 2019 teaching various ' +
+        'knowledge. I had the great oppurtunity to work for iD Tech in the summers of 2018 and 2019 teaching various ' +
         'computing topics, and then at Avangrid in the summer of 2020 developing a web app as an IT Applications ' +
         'Intern. This coming Spring, I will be graduating from the Rochester Institute of Technology (RIT) with ' +
         'a Bachelor of Science in Game Design and Development and minors in Web Development, Mobile Development, ' +
-        'and Psychology. I hope to earn a full-time position at a company where I can both provide and enhance ' +
+        'and Psychology. I am looking to earn a full-time position at a company where I can both provide and enhance ' +
         'my knowledge in the development of useful applications and services.',
       projects: [
         collegeFinder,
