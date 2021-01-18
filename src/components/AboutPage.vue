@@ -47,7 +47,7 @@
             <!-- Second Column -->
             <div class="column">
               <h2 class="title is-2 has-text-dark">About Me</h2>
-              <p>{{ description }}</p>
+              <p v-html="description">{{ description }}</p>
               <div class="has-text-centered mt-4">
                 <a
                   href="/Nauta_Resume.pdf"

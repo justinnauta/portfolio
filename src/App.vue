@@ -226,9 +226,9 @@ export default {
       aboutDescription:
         'I am a programmer at heart; I have a deep love for learning and problem solving. Ever since I was ' +
         'eleven years old I have not stopped learning about programming and looking for ways to enhance my ' +
-        'knowledge. I had the great oppurtunity to work for iD Tech in the summers of 2018 and 2019 teaching various ' +
+        'knowledge. I had the great opportunity to work for iD Tech in the summers of 2018 and 2019 teaching various ' +
         'computing topics, and then at Avangrid in the summer of 2020 developing a web app as an IT Applications ' +
-        'Intern. This coming Spring, I will be graduating from the Rochester Institute of Technology (RIT) with ' +
+        'Intern.<br /><br />This coming Spring, I will be graduating from the Rochester Institute of Technology (RIT) with ' +
         'a Bachelor of Science in Game Design and Development and minors in Web Development, Mobile Development, ' +
         'and Psychology. I am looking to earn a full-time position at a company where I can both provide and enhance ' +
         'my knowledge in the development of useful applications and services.',
