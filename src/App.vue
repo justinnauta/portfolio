@@ -206,6 +206,41 @@ const ritWebsite = new ProjectInfo(
   null
 );
 
+const betterWorld = new ProjectInfo(
+  ['betterWorld_01.jpg', 'betterWorld_02.jpg', 'betterWorld_03.jpg'],
+
+  'Better World: Full-Stack App',
+
+  'An application and API for finding ways to make the world a better place.',
+
+  'Better World is a full-stack application that helps users find things they can do to make the ' +
+    'world a better place. Users can login or signup and view their favorite activities or suggest ' +
+    'new ones. Developers can access one of the various API endpoints in order to use the data in ' +
+    'their own applications.',
+
+  'Sole Developer (The entirety of the application was developed by me)',
+
+  ['MongoDB', 'Express', 'React', 'Node'],
+
+  'One particular difficulty during the development of this application was the account system. ' +
+    'Being my first time setting up a login and sign up system, I had a lot to learn and plan. ' +
+    'I needed to make sure user data was securely stored and retrieved so it could be authenticated ' +
+    'on the front-end of the application.',
+
+  'After learning a lot about setting up an account system, I made and executed a plan. ' +
+    'I used MongoDB and Mongoose within Node.js to hash and store the usernames and passwords, ' +
+    'which were sent from the front-end. I also made use of Redis in order to store the currently ' +
+    'logged in session so the front-end could properly authenticate the user.',
+
+  'The app incorporates an admin dashboard. This allows administrators to view all the data, ' +
+    'including user entries, and either approve or remove the entries. This is then communicated ' +
+    'with the back-end and updated throughout the application.',
+
+  'https://github.com/jrn2778/430-project-2',
+
+  'https://jrn2778-430-project-2.herokuapp.com/'
+);
+
 export default {
   name: 'App',
   components: {
@@ -228,18 +263,19 @@ export default {
         'eleven years old I have not stopped learning about programming and looking for ways to enhance my ' +
         'knowledge. I had the great opportunity to work for iD Tech in the summers of 2018 and 2019 teaching various ' +
         'computing topics, and then at Avangrid in the summer of 2020 developing a web app as an IT Applications ' +
-        'Intern.<br /><br />This Spring, I will graduate from the Rochester Institute of Technology (RIT) with ' +
+        'Intern.<br /><br />This May I graduated from the Rochester Institute of Technology (RIT) with ' +
         'a Bachelor of Science in Game Design and Development and minors in Web Development, Mobile Development, ' +
         'and Psychology. I am looking to earn a full-time position at a company where I can both provide and enhance ' +
         'my knowledge in the development of useful applications and services.',
       projects: [
+        betterWorld,
         collegeFinder,
         avangridProjectTasks,
         myPortfolio,
         audioVisualizer,
         ritWebsite,
       ],
-      featuredProjectsIndex: [0, 1],
+      featuredProjectsIndex: [0, 2],
       currentProjectModal: -1,
     };
   },
